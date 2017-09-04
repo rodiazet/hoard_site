@@ -219,7 +219,7 @@ a.generalButton,
   body {
     font-size: 18px; }
   h2, .h2Style {
-    font-size: 30px; }
+    font-size: 40px; }
   h3, .h3Style {
     font-size: 20px; } }
 
@@ -387,7 +387,7 @@ a.generalButton,
   .contentHeight {
     height: calc(100vh - 82px); }
   .mainContent {
-    height: calc(100% - 28%); } }
+    height: calc(100% - 7%); } }
 
 /* font size */
 /* timimg */
@@ -624,16 +624,51 @@ a.generalButton,
   .ie9 .after .iconLinks {
     border-top: 1px dotted #d19da1; }
 
+.contributeStatus {
+  text-align: center;
+  padding-top: 30px;
+  background-position: top;
+  background-image: linear-gradient(to right, #d19da1 20%, rgba(255, 255, 255, 0) 0%);
+  background-size: 5px 1px;
+  background-repeat: repeat-x; }
+  .ie9 .contributeStatus {
+    border-top: 1px dotted #d19da1; }
+  .contributeStatus h3 {
+    font-size: 20px;
+    line-height: 36px;
+    margin-bottom: 33px; }
+  .contributeStatus .contributeStatusInput {
+    width: 100%;
+    max-width: 360px;
+    font-size: 18px;
+    border: none;
+    background: #ffffff;
+    color: #000000;
+    padding: 0 15px;
+    height: 38px;
+    margin-bottom: 38px;
+    outline: none; }
+    .contributeStatus .contributeStatusInput::-moz-placeholder {
+      font-family: 'Roboto-Light';
+      color: #bcbcbc; }
+    .contributeStatus .contributeStatusInput::-webkit-input-placeholder {
+      font-family: 'Roboto-Light';
+      color: #bcbcbc; }
+    .contributeStatus .contributeStatusInput:-ms-input-placeholder {
+      font-family: 'Roboto-Light';
+      color: #bcbcbc; }
+
 @media (min-width: 992px) {
   .summarySection {
-    margin-top: 16px; }
+    margin-top: 16px;
+    margin-bottom: 45px; }
     .summarySection h2 {
       line-height: 53px;
-      margin-bottom: 43px;
-      padding: 0 145px; }
-    .summarySection .summaryThankYou {
-      font-size: 18px;
       margin-bottom: 40px; }
+    .summarySection .summaryThankYou {
+      font-size: 30px;
+      margin-bottom: 40px;
+      letter-spacing: 1px; }
     .summarySection .summaryTable table {
       font-size: 48px; }
       .summarySection .summaryTable table td {
@@ -652,7 +687,9 @@ a.generalButton,
     padding-top: 49px;
     text-align: center; }
     .after .iconLinks li {
-      margin: 0 7px; } }
+      margin: 0 7px; }
+  .contributeStatus {
+    padding-top: 52px; } }
 
 /* font size */
 /* timimg */
