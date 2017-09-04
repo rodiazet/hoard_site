@@ -129,6 +129,10 @@
     }
 }
 
+.mainTitleSection{
+    text-align:center;
+}
+
 @media (min-width: $tabletSize) {
 }
 
@@ -145,6 +149,9 @@
         }
     }
     .topStatus {
+        h2{
+            font-size:30px;
+        }
         .eventCountDown, .willRaise {
             @include dottedBorder(#d19da1,vertical,right,5px,1px);
         }

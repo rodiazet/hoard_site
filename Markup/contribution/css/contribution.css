@@ -513,6 +513,9 @@ a.generalButton,
     font-size: 14px;
     line-height: 28px; }
 
+.mainTitleSection {
+  text-align: center; }
+
 @media (min-width: 992px) {
   .timerContainer {
     margin-top: 32px; }
@@ -522,6 +525,8 @@ a.generalButton,
       visibility: visible;
       position: relative;
       left: auto; }
+  .topStatus h2 {
+    font-size: 30px; }
   .topStatus .eventCountDown, .topStatus .willRaise {
     background-position: right;
     background-image: linear-gradient(#d19da1 20%, rgba(255, 255, 255, 0) 0%);
