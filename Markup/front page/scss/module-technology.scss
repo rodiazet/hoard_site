@@ -1,0 +1,133 @@
+﻿@import 'variable.scss';
+@import 'mixins.scss';
+
+.technologySection {
+    color: #fff;
+    padding-top: 44px;
+    padding-bottom: 44px;
+}
+
+.technologyTitle {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.technologyContent {
+    margin-top: 35px;
+}
+
+.technologyContainer {
+    .title {
+        text-align: center;
+        font-family: 'Roboto-Thin';
+        font-size: 36px;
+        span {
+            display: block;
+            font-family: 'Roboto-Light';
+            font-size: 16px;
+            margin-top: 25px;
+        }
+    }
+    .imageWrapper {
+        text-align: center;
+        margin: 40px 0;
+        overflow: hidden;
+    }
+    .technologyImage {
+        margin-top: 50px;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+.technologyList {
+    list-style: none;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 0;
+
+    li {
+        position: relative;
+        margin-bottom: 20px;
+        padding-left: 29px;
+
+        &:before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            background: url('../images/bullet.png') no-repeat center;
+            @include position(absolute,7px,auto,auto,0,1);
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    a {
+        font-family: 'Roboto-Bold';
+        color:#ffffff;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.technologyRightCol {
+    text-align: center;
+}
+
+@media (min-width: $tabletSize) {
+
+}
+
+@media (min-width: $labtopSize) {
+    .technologySection {
+        padding-top: 104px;
+        padding-bottom: 104px;
+    }
+    .technologyContent {
+        margin-top: 65px;
+    }
+    .technologyContainer {
+        .title {
+            display: inline-block;
+            font-size: 48px;
+            span {
+                font-size: 18px;
+                margin-top: 15px;
+            }
+        }
+        .imageWrapper {
+            text-align: left;
+            margin: 15px 0 0;
+            .technologyImage {
+                display: inline-block;
+                margin: 0 25px 0 0;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+    .technologyRightCol {
+        text-align: left;
+    }
+    .technologyList {
+        padding-left: 0;
+    }
+}
+
+@media (min-width: $DesktopSize) {
+    .technologyContainer {
+        .title {
+            padding-left: 45px;
+        }
+        .imageWrapper {
+            padding-left: 40px;
+        }
+    }
+}

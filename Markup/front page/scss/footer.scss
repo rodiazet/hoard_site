@@ -1,0 +1,183 @@
+﻿@import 'variable.scss';
+@import 'mixins.scss';
+
+.footer {
+    width: 100%;
+    background: $greyMetalBG;
+    color: #fff;
+    padding: 55px 0 43px;
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+    text-align: center;
+}
+
+.ico-github {
+    font-size: 36px;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    &:hover, &:active, &:focus {
+        color: #fff;
+    }
+}
+
+.followMeWrapper {
+    display: inline-block;
+    margin-top: 40px;
+
+    .ico-social {
+        float: left;
+        position: relative;
+
+        &:after {
+            font-family: 'FontAwesome';
+            content: "\f04b";
+            font-size: 12px;
+            line-height: 12px;
+            color: #ff3f40;
+            height: 12px;
+            width: 12px;
+            display: none;
+            @include position(absolute,45px,auto,auto,13px,1);
+            @include transform(rotate(-90deg));
+        }
+    }
+
+    .emailContact {
+        clear: both;
+        display: block;
+        margin: 9px 0;
+        font-size: 16px;
+
+        a {
+            color: #fff;
+
+            &:hover {
+                color: #f09789;
+            }
+        }
+    }
+}
+
+.listSocial {
+    list-style: none;
+    padding: 0;
+    li {
+        display: inline-block;
+        margin-right: 22px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.newsletterWrapper {
+    .form-control {
+        width: 100%;
+        min-width: 296px;
+        border-radius: 25px;
+        font-size: 16px;
+        height: 51px;
+        padding: 12px 55px 11px 19px;
+        border: none;
+        outline: none;
+        color: $pageFontColor;
+
+        &:focus {
+            outline: none;
+            border: none;
+            @include boxShadow(none);
+        }
+
+        &::-moz-placeholder {
+            color: $pageFontColor;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $pageFontColor;
+        }
+
+        &:-ms-input-placeholder {
+            color: $pageFontColor;
+        }
+    }
+
+    .form-control[placeholder] {
+        text-overflow: ellipsis;
+    }
+}
+
+.btn-sendEmail {
+    @include position(absolute, 5px, 5px, auto, auto, 1);
+    background-color: $generalRed;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 0;
+    box-shadow: none;
+
+    i {
+        font-size: 21px;
+        margin: 8px 0;
+        display: inline-block;
+    }
+
+    &:hover {
+        background-color: #f09789;
+    }
+}
+
+.input-newsLetter {
+    position: relative;
+    display: inline-block;
+}
+
+.no-touchevents {
+    .followMeWrapper {
+        .ico-social {
+            &:hover {
+                &:after {
+                    display:block;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $tabletSize) {
+}
+
+@media (min-width: $labtopSize) {
+    .footer {
+        padding: 83px 0 135px;
+    }
+    .followMeWrapper {
+        .emailContact {
+            float: left;
+            clear: none;
+        }
+    }
+    .listSocial {
+        float: left;
+        li {
+            &:last-child {
+                margin-right: 22px;
+            }
+        }
+    }
+    .newsletterWrapper {
+        .form-control {
+            width: 410px;
+        }
+    }
+}
+
+@media (min-width: $DesktopSize) {
+
+}

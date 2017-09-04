@@ -1,0 +1,97 @@
+﻿@import 'variable.scss';
+@import 'mixins.scss';
+
+.videoSection {
+    position: relative;
+    height: 421px;
+    background-color: #333a40;
+    .videoBg {
+        min-height: 100%;
+        min-width: 100%;
+        overflow: hidden;
+        @include position(absolute,0,auto,auto,auto,1);
+
+        .videoBgImage {
+            min-height: 100%;
+            min-width: 100%;
+            max-width: none;
+            width: 1355px;
+            @include position(absolute,0,auto,auto,50%,1);
+            @include transform(translate(-50%, 0));
+        }
+    }
+
+    .texture {
+        background: url('../images/texture.png') repeat;
+        @include position(absolute,0,0,0,0,2);
+    }
+
+    .videoControlSection {
+        text-align: center;
+        color: #ffffff;
+        @include position(absolute,50%,0,auto,0,3);
+        @include transform(translate(0, -50%));
+
+        .videoControlText {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: right;
+
+            h2 {
+                font-family: 'Roboto-Thin';
+                font-size: 36px;
+                text-transform: none;
+            }
+
+            p {
+                margin-bottom: 0;
+                font-size: 16px;
+                letter-spacing: 2px;
+            }
+        }
+
+        .videoToggle {
+            color: #ffffff;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 63px;
+            margin-left: 10px;
+        }
+    }
+}
+
+@media (min-width: $tabletSize) {
+}
+
+@media (min-width: $labtopSize) {
+    .videoSection {
+        height: 500px;
+
+        .videoBg {
+
+            .videoBgImage {
+                width: auto;
+            }
+        }
+
+        .videoControlSection {
+            .videoControlText {
+                
+                h2 {
+                    font-size:72px;
+                    line-height:normal;
+                    margin-bottom:0;
+                }
+            }
+
+            .videoToggle {
+                font-size:96px;
+                margin-left:15px;
+                margin-top:12px;
+            }
+        }
+    }
+}
+
+@media (min-width: $DesktopSize) {
+}
