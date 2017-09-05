@@ -335,10 +335,13 @@ a.generalButton,
     z-index: 0; }
 
 .contributionHeader {
+  position: relative;
+  z-index: 9;
   height: 50px; }
   .contributionHeader .logo {
     padding-top: 12px;
-    padding-left: 9px; }
+    padding-left: 9px;
+    float: left; }
     .contributionHeader .logo img {
       width: 71px; }
 
@@ -454,19 +457,19 @@ a.generalButton,
     font-size: 16px;
     text-transform: uppercase;
     margin-bottom: 0; }
-  .topStatus .willRaiseContainer, .topStatus .tokenStatusContainer {
+  .topStatus .willRaiseContainer, .topStatus .tokenStatusContainer, .topStatus .statisticContainer {
     padding: 22px 0 24px;
     background-position: bottom;
     background-image: linear-gradient(to right, #d19da1 20%, rgba(255, 255, 255, 0) 0%);
     background-size: 5px 1px;
     background-repeat: repeat-x; }
-    .ie9 .topStatus .willRaiseContainer, .ie9 .topStatus .tokenStatusContainer {
+    .ie9 .topStatus .willRaiseContainer, .ie9 .topStatus .tokenStatusContainer, .ie9 .topStatus .statisticContainer {
       border-bottom: 1px dotted #d19da1; }
-  .topStatus .willRaiseValue, .topStatus .willRaiseUnit, .topStatus .tokenStatusValue, .topStatus .tokenStatusUnit, .topStatus .uniqueParticipantNo {
+  .topStatus .willRaiseValue, .topStatus .willRaiseUnit, .topStatus .tokenStatusValue, .topStatus .tokenStatusUnit, .topStatus .uniqueParticipantNo, .topStatus .statisticValue {
     font-family: 'Roboto-Thin';
     font-size: 30px;
     text-transform: uppercase; }
-  .topStatus .willRaiseUnit, .topStatus .tokenStatusUnit {
+  .topStatus .willRaiseUnit, .topStatus .tokenStatusUnit, .topStatus .statisticUnit {
     font-size: 24px;
     margin-bottom: 0;
     margin-left: 15px;
@@ -545,10 +548,10 @@ a.generalButton,
     margin-bottom: 20px; }
   .topStatus .eventCountDownBlock {
     font-size: 24px; }
-  .topStatus .willRaiseContainer, .topStatus .tokenStatusContainer {
+  .topStatus .willRaiseContainer, .topStatus .tokenStatusContainer, .topStatus .statisticContainer {
     padding: 0;
     background-image: none; }
-  .topStatus .willRaiseValue, .topStatus .tokenStatusValue, .topStatus .uniqueParticipantNo {
+  .topStatus .willRaiseValue, .topStatus .tokenStatusValue, .topStatus .uniqueParticipantNo, .topStatus .statisticValue {
     font-size: 48px;
     line-height: 48px; }
   .topStatus .willRaiseValue {
@@ -833,6 +836,8 @@ a.generalButton,
 
 .graphSection {
   margin-top: 25px; }
+  .graphSection h2 {
+    font-size: 20px; }
   .graphSection .no-margin {
     margin: 0 !important; }
   .graphSection .graphSectionBlock {
@@ -921,9 +926,11 @@ a.generalButton,
     .howContribute p a:hover {
       text-decoration: none; }
   .howContribute .contributeContract {
+    display: inline-block;
     background: rgba(127, 2, 18, 0.5);
     padding: 10px;
     margin-bottom: 15px;
+    max-width: 680px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px; }
@@ -935,13 +942,15 @@ a.generalButton,
     .howContribute .contributeContract .contributeContractTitle {
       text-transform: uppercase;
       font-size: 20px; }
+    .howContribute .contributeContract .contributeContractDetail {
+      text-transform: uppercase; }
 
-.duringFirst {
+.duringFirst, .contributeTerm {
   transition: opacity 0.3s ease;
   -moz-transition: opacity 0.3s ease;
   -webkit-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease; }
-  .duringFirst.hideDiv {
+  .duringFirst.hideDiv, .contributeTerm.hideDiv {
     position: fixed;
     top: -100000%;
     right: -100000%;
@@ -954,7 +963,7 @@ a.generalButton,
     -khtml-opacity: 0;
     opacity: 0; }
 
-.duringFAQ {
+.duringGraph, .howContribute {
   position: fixed;
   top: -100000%;
   right: -100000%;
@@ -970,13 +979,43 @@ a.generalButton,
   -moz-transition: opacity 0.3s ease;
   -webkit-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease; }
-  .duringFAQ.show {
+  .duringGraph.show, .howContribute.show {
     position: static;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
     -moz-opacity: 1;
     -khtml-opacity: 1;
     opacity: 1; }
+
+.contributeNavigation {
+  float: right;
+  width: 70%;
+  margin-right: 15px;
+  margin-top: 10px; }
+  .contributeNavigation ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0;
+    text-align: right; }
+    .contributeNavigation ul li {
+      display: inline-block;
+      margin-left: 15px; }
+      .contributeNavigation ul li a {
+        display: block;
+        color: #ffffff; }
+      .contributeNavigation ul li i {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 26px; }
+
+.backNav {
+  display: none; }
+  .backNav ul li {
+    font-size: 18px; }
+    .backNav ul li i {
+      font-size: 15px;
+      margin-right: 10px; }
 
 @media (min-width: 992px) {
   .during .topStatus .eventCountDown {
@@ -1039,14 +1078,24 @@ a.generalButton,
       background-position: 0 4px !important; }
     .contributeTerm .confirmContinue {
       margin-top: 45px; }
-  .graphSection h2 {
-    margin-bottom: 30px; }
-  .graphSection .graphSectionBlock {
-    margin-bottom: 0; }
-  .graphSection .graphContainer {
-    width: 100%;
-    max-width: 407px;
-    height: 226px; }
+  .graphSection {
+    margin-top: 40px;
+    padding-top: 42px;
+    background-position: top;
+    background-image: linear-gradient(to right, #d19da1 20%, rgba(255, 255, 255, 0) 0%);
+    background-size: 5px 1px;
+    background-repeat: repeat-x; }
+    .ie9 .graphSection {
+      border-top: 1px dotted #d19da1; }
+    .graphSection h2 {
+      font-size: 24px;
+      margin-bottom: 21px; }
+    .graphSection .graphSectionBlock {
+      margin-bottom: 0; }
+    .graphSection .graphContainer {
+      width: 100%;
+      max-width: 407px;
+      height: 226px; }
   .backSection {
     padding: 14px 0 20px; }
   .questionContainer .question {
@@ -1067,5 +1116,39 @@ a.generalButton,
       margin-bottom: 0; }
   .duringFAQ .iconLinks {
     background-image: none;
-    margin-top: 0; } }
+    margin-top: 0; }
+  .howContribute {
+    padding-top: 43px; }
+    .howContribute h2 {
+      font-size: 30px;
+      margin-bottom: 27px; }
+    .howContribute p {
+      margin-bottom: 22px; }
+    .howContribute .contributeContract {
+      width: 680px;
+      padding: 28px 20px 20px;
+      margin-bottom: 19px; }
+      .howContribute .contributeContract .contributeContractTitle {
+        font-size: 30px; }
+      .howContribute .contributeContract .contributeContractDetail {
+        font-size: 24px; }
+    .howContribute > *:last-child {
+      margin-bottom: 0; }
+  .contributeNavigation {
+    margin-top: 31px;
+    margin-right: 27px; }
+    .contributeNavigation ul li {
+      font-size: 18px;
+      margin-left: 33px; }
+      .contributeNavigation ul li a {
+        text-transform: uppercase;
+        letter-spacing: 1px; }
+        .contributeNavigation ul li a:hover span {
+          text-decoration: underline; }
+      .contributeNavigation ul li i {
+        margin-right: 10px; }
+  .duringGraph .mainTitleSection h2 {
+    margin-bottom: 27px; }
+  .duringGraph .topStatus > *:first-child {
+    margin-bottom: 29px; } }
 

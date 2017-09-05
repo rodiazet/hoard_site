@@ -63,22 +63,22 @@
         margin-bottom: 0;
     }
 
-    .willRaiseContainer, .tokenStatusContainer {
+    .willRaiseContainer, .tokenStatusContainer, .statisticContainer {
         padding: 22px 0 24px;
         @include dottedBorder(#d19da1,horizontal,bottom,5px,1px);
     }
 
-    .willRaiseValue, .willRaiseUnit, .tokenStatusValue, .tokenStatusUnit, .uniqueParticipantNo {
+    .willRaiseValue, .willRaiseUnit, .tokenStatusValue, .tokenStatusUnit, .uniqueParticipantNo, .statisticValue {
         font-family: 'Roboto-Thin';
         font-size: 30px;
         text-transform: uppercase;
     }
 
-    .willRaiseUnit, .tokenStatusUnit {
+    .willRaiseUnit, .tokenStatusUnit, .statisticUnit {
         font-size: 24px;
         margin-bottom: 0;
-        margin-left:15px;
-        margin-right:15px;
+        margin-left: 15px;
+        margin-right: 15px;
     }
 
     .uniqueParticipant {
@@ -151,9 +151,10 @@
         }
     }
     .topStatus {
-        h2{
-            font-size:30px;
+        h2 {
+            font-size: 30px;
         }
+
         .eventCountDown {
             @include dottedBorder(#d19da1,vertical,right,5px,1px);
         }
@@ -173,18 +174,18 @@
             font-size: 24px;
         }
 
-        .willRaiseContainer, .tokenStatusContainer {
+        .willRaiseContainer, .tokenStatusContainer, .statisticContainer {
             padding: 0;
             background-image: none;
         }
 
-        .willRaiseValue, .tokenStatusValue, .uniqueParticipantNo {
+        .willRaiseValue, .tokenStatusValue, .uniqueParticipantNo, .statisticValue {
             font-size: 48px;
             line-height: 48px;
         }
 
-        .willRaiseValue{
-            margin-bottom:58px;
+        .willRaiseValue {
+            margin-bottom: 58px;
         }
 
         .uniqueParticipant {

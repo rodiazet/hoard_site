@@ -23,10 +23,13 @@
     }
 }
 .contributionHeader{
+    position:relative;
+    z-index:9;
     height:50px;
     .logo{
         padding-top:12px;
         padding-left:9px;
+        float:left;
         img{
             width:71px;
         }
