@@ -77,6 +77,8 @@
     .willRaiseUnit, .tokenStatusUnit {
         font-size: 24px;
         margin-bottom: 0;
+        margin-left:15px;
+        margin-right:15px;
     }
 
     .uniqueParticipant {
@@ -152,7 +154,7 @@
         h2{
             font-size:30px;
         }
-        .eventCountDown, .willRaise {
+        .eventCountDown {
             @include dottedBorder(#d19da1,vertical,right,5px,1px);
         }
 
@@ -179,6 +181,10 @@
         .willRaiseValue, .tokenStatusValue, .uniqueParticipantNo {
             font-size: 48px;
             line-height: 48px;
+        }
+
+        .willRaiseValue{
+            margin-bottom:58px;
         }
 
         .uniqueParticipant {
@@ -217,6 +223,12 @@
             font-size: 18px;
             line-height: 36px;
             margin-bottom: 0;
+        }
+    }
+    .mainTitleSection {
+        margin-top:16px;
+        h2{
+            margin-bottom:39px;
         }
     }
 }

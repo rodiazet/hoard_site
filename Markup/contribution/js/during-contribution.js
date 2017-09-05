@@ -19,7 +19,8 @@
         this.onWindowLoad();
         this.toggleGraph();
         this.toggleFAQ();
-        this.openFaqPage();
+
+        this.continueAction();
     }
 
     this.onScreenChange = function () {
@@ -91,7 +92,7 @@
         });
     }
 
-    this.openFaqPage = function () {
+    this.continueAction = function () {
         this.continueButton.on('click', function () {
             context.duringFirstPage.addClass('hideDiv');
             context.duringFAQPage.addClass('show');
