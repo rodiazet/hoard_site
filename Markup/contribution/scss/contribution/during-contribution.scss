@@ -168,6 +168,10 @@
 .graphSection {
     margin-top: 25px;
 
+    h2{
+        font-size:20px;
+    }
+
     .no-margin {
         margin: 0 !important;
     }
@@ -286,13 +290,15 @@
     }
 
     .contributeContract {
+        display: inline-block;
         background: rgba(#7f0212,0.5);
         padding: 10px;
-        margin-bottom:15px;
+        margin-bottom: 15px;
+        max-width: 680px;
         @include border-radius(10px);
 
         p {
-            letter-spacing:1px;
+            letter-spacing: 1px;
             word-break: break-all;
         }
 
@@ -300,14 +306,18 @@
             margin-bottom: 0;
         }
 
-        .contributeContractTitle{
+        .contributeContractTitle {
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+
+        .contributeContractDetail{
             text-transform:uppercase;
-            font-size:20px;
         }
     }
 }
 
-.duringFirst {
+.duringFirst, .contributeTerm {
     @include transition(opacity 0.3s ease);
 
     &.hideDiv {
@@ -316,7 +326,7 @@
     }
 }
 
-.duringFAQ {
+.duringGraph, .howContribute {
     @include position(fixed,-100000%,-100000%,auto,auto,-100);
     @include opacity(0,0);
     @include transition(opacity 0.3s ease);
@@ -324,6 +334,45 @@
     &.show {
         position: static;
         @include opacity(1,100);
+    }
+}
+
+.contributeNavigation{
+    float:right;
+    width:70%;
+    margin-right:15px;
+    margin-top:10px;
+    ul{
+        padding:0;
+        margin:0;
+        list-style:none;
+        font-size:0;
+        text-align:right;
+        li{
+            display:inline-block;
+            margin-left:15px;
+            a{
+                display:block;
+                color:#ffffff;
+            }
+            i{
+                display:inline-block;
+                vertical-align:middle;
+                font-size:26px;
+            }
+        }
+    }
+}
+.backNav{
+    display:none;
+    ul{
+        li{
+            font-size:18px;
+            i{
+                font-size:15px;
+                margin-right:10px;
+            }
+        }
     }
 }
 
@@ -419,16 +468,22 @@
     }
 
     .graphSection {
-        h2{
-            margin-bottom:30px;
+        margin-top:40px;
+        padding-top:42px;
+        @include dottedBorder(#d19da1,horizontal,top,5px,1px);
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 21px;
         }
+
         .graphSectionBlock {
-            margin-bottom:0;
+            margin-bottom: 0;
         }
 
         .graphContainer {
             width: 100%;
-            max-width:407px;
+            max-width: 407px;
             height: 226px;
         }
     }
@@ -471,6 +526,75 @@
         .iconLinks{
             background-image:none;
             margin-top:0;
+        }
+    }
+    .howContribute {
+        padding-top: 43px;
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 27px;
+        }
+
+        p {
+            margin-bottom: 22px;
+        }
+
+        .contributeContract {
+            width: 680px;
+            padding: 28px 20px 20px;
+            margin-bottom:19px;
+
+            .contributeContractTitle {
+                font-size: 30px;
+            }
+
+            .contributeContractDetail {
+                font-size: 24px;
+            }
+        }
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .contributeNavigation {
+        margin-top: 31px;
+        margin-right: 27px;
+
+        ul {
+            li {
+                font-size: 18px;
+                margin-left: 33px;
+
+                a {
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+
+                    &:hover {
+                        span {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    .duringGraph {
+        .mainTitleSection {
+            h2 {
+                margin-bottom: 27px;
+            }
+        }
+
+        .topStatus{
+            >  *:first-child{
+                margin-bottom:29px;
+            }
         }
     }
 }

@@ -4,22 +4,24 @@
     this.html = $('html');
     this.body = $('body');
     this.openGraphButton = $('.openGraph');
-    this.backButton = $('.backButton');
+    this.backButton = $('.closeGraph');
     this.questionButton = $('.question');
     this.continueButton = $('.continueButton');
 
-    this.graphSection = $('.graphSection');
-    this.statusSection = $('.topStatus');
+    this.graphSection = $('.duringGraph');
+    this.statusSection = $('.duringFirst');
 
-    this.duringFirstPage = $('.duringFirst');
-    this.duringFAQPage = $('.duringFAQ');
+    this.contributeTerm = $('.contributeTerm');
+    this.howContribute = $('.howContribute');
+
+    this.normalNav = $('.normalNav');
+    this.backNav = $('.backNav');
 
     this.init = function () {
         this.onScreenChange();
         this.onWindowLoad();
-        this.toggleGraph();
         this.toggleFAQ();
-
+        this.toggleGraph();
         this.continueAction();
     }
 
@@ -63,20 +65,20 @@
     }
 
     this.toggleGraph = function () {
-        this.openGraphButton.on('click', function () {
+        this.openGraphButton.on('click', function (e) {
+            e.preventDefault();
             context.graphSection.addClass('show');
-            context.statusSection.addClass('hideStatus');
-            $('.mainContent').animate({
-                scrollTop: 0
-            }, 300);
+            context.statusSection.addClass('hideDiv');
+            context.backNav.show();
+            context.normalNav.hide();
         });
 
-        this.backButton.on('click', function () {
+        this.backButton.on('click', function (e) {
+            e.preventDefault();
             context.graphSection.removeClass('show');
-            context.statusSection.removeClass('hideStatus');
-            $('.mainContent').animate({
-                scrollTop: 0
-            }, 300);
+            context.statusSection.removeClass('hideDiv');
+            context.backNav.hide();
+            context.normalNav.show();
         });
     }
 
@@ -94,8 +96,8 @@
 
     this.continueAction = function () {
         this.continueButton.on('click', function () {
-            context.duringFirstPage.addClass('hideDiv');
-            context.duringFAQPage.addClass('show');
+            context.contributeTerm.addClass('hideDiv');
+            context.howContribute.addClass('show');
         });
     }
 
