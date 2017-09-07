@@ -33,19 +33,7 @@
     .ico-social {
         float: left;
         position: relative;
-
-        &:after {
-            font-family: 'FontAwesome';
-            content: "\f04b";
-            font-size: 12px;
-            line-height: 12px;
-            color: #ff3f40;
-            height: 12px;
-            width: 12px;
-            display: none;
-            @include position(absolute,45px,auto,auto,13px,1);
-            @include transform(rotate(-90deg));
-        }
+        @include transition(all $transitionTime ease);
     }
 
     .emailContact {
@@ -142,9 +130,7 @@
     .followMeWrapper {
         .ico-social {
             &:hover {
-                &:after {
-                    display:block;
-                }
+                @include transform(translateY(-5px));
             }
         }
     }
