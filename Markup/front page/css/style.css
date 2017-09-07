@@ -1473,27 +1473,11 @@ a.generalButton,
   margin-top: 40px; }
   .followMeWrapper .ico-social {
     float: left;
-    position: relative; }
-    .followMeWrapper .ico-social:after {
-      font-family: 'FontAwesome';
-      content: "\f04b";
-      font-size: 12px;
-      line-height: 12px;
-      color: #ff3f40;
-      height: 12px;
-      width: 12px;
-      display: none;
-      position: absolute;
-      top: 45px;
-      right: auto;
-      bottom: auto;
-      left: 13px;
-      z-index: 1;
-      transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -webkit-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg); }
+    position: relative;
+    transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease; }
   .followMeWrapper .emailContact {
     clear: both;
     display: block;
@@ -1564,8 +1548,12 @@ a.generalButton,
   position: relative;
   display: inline-block; }
 
-.no-touchevents .followMeWrapper .ico-social:hover:after {
-  display: block; }
+.no-touchevents .followMeWrapper .ico-social:hover {
+  transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
+  -webkit-transform: translateY(-5px);
+  -o-transform: translateY(-5px);
+  -ms-transform: translateY(-5px); }
 
 @media (min-width: 992px) {
   .footer {
