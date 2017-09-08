@@ -1,0 +1,69 @@
+﻿@import 'variable.scss';
+@import 'mixins.scss';
+
+.investorSection {
+    text-align: center;
+    color: #ffffff;
+    padding-top: 41px;
+    padding-bottom: 47px;
+
+    .investorTitle {
+        margin-bottom: 68px;
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+
+    .investorItem {
+        margin-top: 69px;
+
+        &:nth-child(1) {
+            margin-top: 0;
+        }
+    }
+
+    .investorItemImage {
+        margin-bottom: 29px;
+
+        .helper {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+    }
+
+    .investorItemTitle {
+        font-family: 'Montserrat-Bold';
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 0;
+        @include wordBreak();
+    }
+}
+
+@media (min-width: $tabletSize) {
+}
+
+@media (min-width: $labtopSize) {
+    .investorSection {
+        padding-top: 104px;
+        padding-bottom: 104px;
+
+        .investorTitle {
+            margin-bottom: 60px;
+        }
+
+        .investorItem {
+            margin-top: 0;
+        }
+    }
+}
+
+@media (min-width: $DesktopSize) {
+}
