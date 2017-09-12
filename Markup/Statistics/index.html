@@ -55,7 +55,7 @@
 </html>
 <script>
     $(document).ready(function () {
-    
+    //ajax calls to get stats
             $.ajax({url: "https://statsapi.hoard.exchange/api/getUniqueAccountsOverTime", success: function(result){
                 var trace1 = {x: [],y: [],type: 'scatter',mode:"lines+markers"};
                 trace1.x = result.time;
