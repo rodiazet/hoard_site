@@ -1191,8 +1191,8 @@ a.generalButton,
       text-align: center; }
     .teamSection .teamItemDetail {
       font-family: 'Roboto-Light';
-      height: 330px;
       width: 330px;
+      min-height: 330px;
       max-height: none;
       font-size: 15px;
       text-align: center;
