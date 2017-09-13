@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html class="htmlContribution">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Statistics</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/jquery.scrollbar.css">
+    <link rel="stylesheet" href="css/contribution.min.css" />
+</head>
+<body class="contribution">
+    <header class="contributionHeader">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Hoard"/></a>
+        </div>
+    </header>
+    <div class="mainContentContainer before">
+        <div class="contributionBG">
+            <img src="images/pure-moutain.png" class="contributionImage" alt=""/>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 contentHeight">
+                    <div class="mainContent scrollbar-inner">
+                        <div class="mainContentWrapper">
+                            <!-- Content inside here -->
+                            <div class="row">
+                                <div class="col-xs-6">
+                                        <div name="myGraph1" id="myGraph1"></div>
+                                </div>
+                                <div class="col-xs-6">
+                                        <div name="myGraph2" id="myGraph2"></div>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/plotly.min.js"></script> 
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="js/modernizr-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollbar.min.js"></script>
+    <script type="text/javascript" src="js/jquery.classycountdown.min.js"></script>
+    <script type="text/javascript" src="js/jquery.knob.js"></script>
+    <script type="text/javascript" src="js/jquery.throttle.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/module-countdown.js"></script>
+    <script type="text/javascript" src="js/base-contribution.js"></script>
+    <script type="text/javascript" src="js/during-contribution.js"></script>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+    //ajax calls to get stats
+            $.ajax({url: "https://statsapi.hoard.exchange/api/getUniqueAccountsOverTime", success: function(result){
+                var trace1 = {x: [],y: [],type: 'scatter',mode:"lines+markers"};
+                trace1.x = result.time;
+                trace1.y = result.accounts;
+                var data = [trace1];
+                var layout = {
+                    title:'Unique accounts over time',
+                    autosize: false,
+                    width: 500,
+                    height: 400,
+                    margin: {
+                        l: 50,
+                        r: 50,
+                        b: 100,
+                        t: 100,
+                        pad: 4
+                    },
+                    paper_bgcolor: '#a8101d',
+                    plot_bgcolor: '#a8101d'
+                };
+                Plotly.newPlot('myGraph1', data,layout);
+            },
+            error: function(err){
+                $("#div3").html(err);
+            }
+            });
+
+            $.ajax({url: "https://statsapi.hoard.exchange/api/getEthOverTime", success: function(result){
+                var trace1 = {x: [],y: [],type: 'scatter',mode:"lines+markers"};
+                trace1.x = result.time;
+                trace1.y = result.accounts;
+                var data = [trace1];
+                var layout = {
+                    title:'Eth over time',
+                    autosize: false,
+                    width: 500,
+                    height: 400,
+                    margin: {
+                        l: 50,
+                        r: 50,
+                        b: 100,
+                        t: 100,
+                        pad: 4
+                    },
+                    paper_bgcolor: '#a8101d',
+                    plot_bgcolor: '#a8101d'
+                };
+                Plotly.newPlot('myGraph2', data,layout);
+            },
+            error: function(err){
+                $("#div3").html(err);
+            }
+            });
+    });
+    </script>
