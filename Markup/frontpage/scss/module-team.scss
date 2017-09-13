@@ -128,15 +128,14 @@
             min-height: 105px;
         }
     }
-
-    .closeButton {
-        cursor: pointer;
-        @include position(absolute,10px,10px,auto,auto,2);
-    }
-
-    .closeMask {
-        @include position(absolute,0,0,0,0,1);
-    }
+}
+.closeButton {
+    cursor: pointer;
+    @include position(absolute,10px,10px,auto,auto,2);
+}
+.closeMask {
+    cursor: pointer;
+    @include position(absolute,0,0,0,0,1);
 }
 
 /* Advisor section */
@@ -151,10 +150,10 @@
     .teamItemDetail {
         background: #ffffff;
         color: $pageFontColor;
+    }
 
-        .closeButton {
-            color: $generalRed;
-        }
+    .closeButton {
+        color: $generalRed;
     }
 }
 
@@ -212,6 +211,7 @@
         }
 
         .teamItemDetail {
+            display:none !important;
             font-family: 'Roboto-Light';
             width: 330px;
             min-height:330px;
@@ -238,17 +238,74 @@
                 padding: 0;
             }
         }
+    }
+    .closeButton {
+        right: auto;
+        left: 50%;
+        top: 16px;
+        font-size: 18px;
+        @include transform(translateX(-50%));
+    }  
+    .closeMask {
+        @include border-radius(50%);
+    }
+    .teamDetailPerson {
+        @include position(fixed,0,0,0,0,-99);
+        &.open{
+            z-index:99;
+        }
+    }
+    .detailPerson {
+        font-family: 'Roboto-Light';
+        width: 635px;
+        min-height: 635px;
+        max-height: none;
+        font-size: 15px;
+        text-align: center;
+        padding: 94px;
+        background: $generalRed;
+        color: $pageFontColor;
+        @include border-radius(50%);
+        @include position(absolute,50%,auto,auto,50%,99);
+        @include transform(translateY(-50%) translateX(-50%) translateZ(0) scale(0, 0));
+        @include transformOrigin(50% 10%);
+        @include transition((transform 0.2s ease-in, opacity 0.3s ease-in));
+        @include opacity(0,0);
 
-        .closeButton {
-            right: auto;
-            left: 50%;
-            top: 16px;
-            font-size: 18px;
-            @include transform(translateX(-50%));
+        &.open {
+            max-height: none;
+            @include transform(translateY(-50%) translateX(-50%) translateZ(0) scale(1, 1));
+            @include transition((transform 0.2s ease-in, opacity 0.3s ease-in));
+            @include opacity(1,100);
         }
 
-        .closeMask {
-            @include border-radius(50%);
+        p {
+            color: #ffffff;
+            line-height: 28px;
+            padding: 0;
+        }
+
+        .closeButton {
+            color: #ffffff;
+        }
+
+        .detailPersonText {
+            width: 447px;
+            @include position(absolute,50%,auto,auto,50%,0);
+            @include transform(translate(-50%,-50%));
+        }
+
+        &.whiteCircle {
+            background: #ffffff;
+            color: $pageFontColor;
+
+            p {
+                color: $pageFontColor;
+            }
+
+            .closeButton {
+                color: $generalRed;
+            }
         }
     }
 }

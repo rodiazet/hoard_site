@@ -77,6 +77,19 @@
             element.parent('.teamItem').siblings('.teamItem').find('.teamItemWraper').removeClass('active');
             
         }, 300);
+
+
+        /* add data to big circle */
+        var str = element.siblings('.teamItemDetail').children('p').text();
+        var circleTheme = element.attr('data-themeCircle');
+        $('.teamDetailPerson').addClass('open');
+        $('.detailPerson').addClass('open');
+        $('.detailPersonText').html(str);
+        if (circleTheme == 'red'){
+            $('.detailPerson').removeClass('whiteCircle');
+        } else {
+            $('.detailPerson').addClass('whiteCircle');
+        }
     }
 
     this.closeDetail = function (element) {
@@ -84,6 +97,12 @@
         setTimeout(function () {
             element.removeClass('active');
         }, 300);
+
+        /* close big circle */
+        setTimeout(function () { $('.teamDetailPerson').removeClass('open'); }, 300);
+        $('.detailPerson').removeClass('open');
+        $('.teamItemDetail').removeClass('open');
+        $('.teamItemWraper').removeClass('active');
     }
 
     context = this;
