@@ -183,8 +183,8 @@
 
     .graphContainer {
         display: inline-block;
-        width: 290px;
-        height: 160px;
+        /*width: 290px;
+        height: 160px;*/
     }
 }
 .backSection {
@@ -324,9 +324,35 @@
         @include position(fixed,-100000%,-100000%,auto,auto,-100);
         @include opacity(0,0);
     }
+
+    .eventCountDownDate {
+        display: block;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-top: 10px;
+        letter-spacing: 1px;
+    }
+
+    .eventCountDownBlock {
+        display: block;
+        margin-left: 15px;
+        margin-right: 15px;
+        letter-spacing: 1px;
+    }
 }
 
-.duringGraph, .howContribute {
+/*.duringGraph, .howContribute {
+    @include position(fixed,-100000%,-100000%,auto,auto,-100);
+    @include opacity(0,0);
+    @include transition(opacity 0.3s ease);
+
+    &.show {
+        position: static;
+        @include opacity(1,100);
+    }
+}*/
+
+.howContribute {
     @include position(fixed,-100000%,-100000%,auto,auto,-100);
     @include opacity(0,0);
     @include transition(opacity 0.3s ease);
@@ -376,7 +402,16 @@
     }
 }
 
+.continueButton[disabled=disabled] {
+    color: #aaaaaa;
+    border-color: #aaaaaa;
+    &:hover{
+        background-color:transparent;
+    }
+}
+
 @media (min-width: $tabletSize) {
+
 }
 
 @media (min-width: $labtopSize) {
@@ -482,9 +517,8 @@
         }
 
         .graphContainer {
-            width: 100%;
-            max-width: 407px;
-            height: 226px;
+            /*max-width: 407px;
+            height: 226px;*/
         }
     }
 
@@ -595,6 +629,16 @@
             >  *:first-child{
                 margin-bottom:29px;
             }
+        }
+    }
+    .duringFirst, .contributeTerm {
+        .eventCountDownDate {
+            display: inline-block;
+            margin-top: 0;
+        }
+
+        .eventCountDownBlock {
+            display: inline-block;
         }
     }
 }

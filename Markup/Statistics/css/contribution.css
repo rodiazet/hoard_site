@@ -219,7 +219,7 @@ a.generalButton,
   body {
     font-size: 18px; }
   h2, .h2Style {
-    font-size: 30px; }
+    font-size: 40px; }
   h3, .h3Style {
     font-size: 20px; } }
 
@@ -299,7 +299,7 @@ a.generalButton,
 /* page sections background color */
 /*alert Message*/
 .htmlContribution {
-  overflow: hidden; }
+  /*overflow: hidden;*/ }
 
 .contribution {
   overflow: hidden;
@@ -311,7 +311,8 @@ a.generalButton,
   background: -o-linear-gradient(top, #7b0211 0%, #ae171f 100%);
   background: -ms-linear-gradient(top, #7b0211 0%, #ae171f 100%);
   background: linear-gradient(to bottom, #7b0211 0%, #ae171f 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7b0211', endColorstr='#ae171f', GradientType=0 ); }
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7b0211', endColorstr='#ae171f', GradientType=0 );
+  background-attachment: fixed; }
 
 .contributionBG {
   min-height: 100%;
@@ -335,24 +336,28 @@ a.generalButton,
     z-index: 0; }
 
 .contributionHeader {
+  position: relative;
+  z-index: 9;
   height: 50px; }
   .contributionHeader .logo {
     padding-top: 12px;
-    padding-left: 9px; }
+    padding-left: 9px;
+    float: left; }
     .contributionHeader .logo img {
       width: 71px; }
 
 .mainContentContainer > .container {
   width: 100%;
   max-width: 1260px;
-  padding-right: 0; }
+  /*padding-right:0;*/ }
 
 .mainContent {
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: calc(100vh - 100px); }
+  /*overflow-y: auto;
+    overflow-x:hidden;
+    height: calc(100vh - 100px);*/
+  padding-bottom: 30px; }
   .mainContent .mainContentWrapper {
-    padding-right: 30px; }
+    /*padding-right: 30px;*/ }
 
 .scrollbar-inner > .scroll-element.scroll-y {
   width: 5px;
@@ -385,9 +390,10 @@ a.generalButton,
       .contributionHeader .logo img {
         width: 107px; }
   .contentHeight {
-    height: calc(100vh - 82px); }
+    /*height: calc(100vh - 82px);*/ }
   .mainContent {
-    height: calc(100% - 28%); } }
+    /*height: calc(100% - 30px);*/
+    margin-bottom: 50px; } }
 
 /* font size */
 /* timimg */
@@ -454,21 +460,23 @@ a.generalButton,
     font-size: 16px;
     text-transform: uppercase;
     margin-bottom: 0; }
-  .topStatus .willRaiseContainer, .topStatus .tokenStatusContainer {
+  .topStatus .willRaiseContainer, .topStatus .tokenStatusContainer, .topStatus .statisticContainer {
     padding: 22px 0 24px;
     background-position: bottom;
     background-image: linear-gradient(to right, #d19da1 20%, rgba(255, 255, 255, 0) 0%);
     background-size: 5px 1px;
     background-repeat: repeat-x; }
-    .ie9 .topStatus .willRaiseContainer, .ie9 .topStatus .tokenStatusContainer {
+    .ie9 .topStatus .willRaiseContainer, .ie9 .topStatus .tokenStatusContainer, .ie9 .topStatus .statisticContainer {
       border-bottom: 1px dotted #d19da1; }
-  .topStatus .willRaiseValue, .topStatus .willRaiseUnit, .topStatus .tokenStatusValue, .topStatus .tokenStatusUnit, .topStatus .uniqueParticipantNo {
+  .topStatus .willRaiseValue, .topStatus .willRaiseUnit, .topStatus .tokenStatusValue, .topStatus .tokenStatusUnit, .topStatus .uniqueParticipantNo, .topStatus .statisticValue {
     font-family: 'Roboto-Thin';
     font-size: 30px;
     text-transform: uppercase; }
-  .topStatus .willRaiseUnit, .topStatus .tokenStatusUnit {
+  .topStatus .willRaiseUnit, .topStatus .tokenStatusUnit, .topStatus .statisticUnit {
     font-size: 24px;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    margin-left: 15px;
+    margin-right: 15px; }
   .topStatus .uniqueParticipant {
     padding: 22px 0 24px;
     background-position: top;
@@ -513,6 +521,9 @@ a.generalButton,
     font-size: 14px;
     line-height: 28px; }
 
+.mainTitleSection {
+  text-align: center; }
+
 @media (min-width: 992px) {
   .timerContainer {
     margin-top: 32px; }
@@ -522,12 +533,14 @@ a.generalButton,
       visibility: visible;
       position: relative;
       left: auto; }
-  .topStatus .eventCountDown, .topStatus .willRaise {
+  .topStatus h2 {
+    font-size: 30px; }
+  .topStatus .eventCountDown {
     background-position: right;
     background-image: linear-gradient(#d19da1 20%, rgba(255, 255, 255, 0) 0%);
     background-size: 1px 5px;
     background-repeat: repeat-y; }
-    .ie9 .topStatus .eventCountDown, .ie9 .topStatus .willRaise {
+    .ie9 .topStatus .eventCountDown {
       border-right: 1px dotted #d19da1; }
   .topStatus .eventCountDownContainer {
     padding-bottom: 0;
@@ -538,12 +551,14 @@ a.generalButton,
     margin-bottom: 20px; }
   .topStatus .eventCountDownBlock {
     font-size: 24px; }
-  .topStatus .willRaiseContainer, .topStatus .tokenStatusContainer {
+  .topStatus .willRaiseContainer, .topStatus .tokenStatusContainer, .topStatus .statisticContainer {
     padding: 0;
     background-image: none; }
-  .topStatus .willRaiseValue, .topStatus .tokenStatusValue, .topStatus .uniqueParticipantNo {
+  .topStatus .willRaiseValue, .topStatus .tokenStatusValue, .topStatus .uniqueParticipantNo, .topStatus .statisticValue {
     font-size: 48px;
     line-height: 48px; }
+  .topStatus .willRaiseValue {
+    margin-bottom: 58px; }
   .topStatus .uniqueParticipant {
     padding: 29px 0 0;
     background-image: none; }
@@ -572,7 +587,11 @@ a.generalButton,
     .termCondition p {
       font-size: 18px;
       line-height: 36px;
-      margin-bottom: 0; } }
+      margin-bottom: 0; }
+  .mainTitleSection {
+    margin-top: 16px; }
+    .mainTitleSection h2 {
+      margin-bottom: 39px; } }
 
 /* font size */
 /* timimg */
@@ -624,16 +643,51 @@ a.generalButton,
   .ie9 .after .iconLinks {
     border-top: 1px dotted #d19da1; }
 
+.contributeStatus {
+  text-align: center;
+  padding-top: 30px;
+  background-position: top;
+  background-image: linear-gradient(to right, #d19da1 20%, rgba(255, 255, 255, 0) 0%);
+  background-size: 5px 1px;
+  background-repeat: repeat-x; }
+  .ie9 .contributeStatus {
+    border-top: 1px dotted #d19da1; }
+  .contributeStatus h3 {
+    font-size: 20px;
+    line-height: 36px;
+    margin-bottom: 33px; }
+  .contributeStatus .contributeStatusInput {
+    width: 100%;
+    max-width: 360px;
+    font-size: 18px;
+    border: none;
+    background: #ffffff;
+    color: #000000;
+    padding: 0 15px;
+    height: 38px;
+    margin-bottom: 38px;
+    outline: none; }
+    .contributeStatus .contributeStatusInput::-moz-placeholder {
+      font-family: 'Roboto-Light';
+      color: #bcbcbc; }
+    .contributeStatus .contributeStatusInput::-webkit-input-placeholder {
+      font-family: 'Roboto-Light';
+      color: #bcbcbc; }
+    .contributeStatus .contributeStatusInput:-ms-input-placeholder {
+      font-family: 'Roboto-Light';
+      color: #bcbcbc; }
+
 @media (min-width: 992px) {
   .summarySection {
-    margin-top: 16px; }
+    margin-top: 16px;
+    margin-bottom: 45px; }
     .summarySection h2 {
       line-height: 53px;
-      margin-bottom: 43px;
-      padding: 0 145px; }
-    .summarySection .summaryThankYou {
-      font-size: 18px;
       margin-bottom: 40px; }
+    .summarySection .summaryThankYou {
+      font-size: 30px;
+      margin-bottom: 40px;
+      letter-spacing: 1px; }
     .summarySection .summaryTable table {
       font-size: 48px; }
       .summarySection .summaryTable table td {
@@ -652,7 +706,9 @@ a.generalButton,
     padding-top: 49px;
     text-align: center; }
     .after .iconLinks li {
-      margin: 0 7px; } }
+      margin: 0 7px; }
+  .contributeStatus {
+    padding-top: 52px; } }
 
 /* font size */
 /* timimg */
@@ -661,32 +717,8 @@ a.generalButton,
 /* font color */
 /* page sections background color */
 /*alert Message*/
-.during .topStatus {
-  transition: opacity 0.3s ease;
-  -moz-transition: opacity 0.3s ease;
-  -webkit-transition: opacity 0.3s ease;
-  -o-transition: opacity 0.3s ease; }
-  .during .topStatus.hideStatus {
-    position: fixed;
-    top: -100000%;
-    right: -100000%;
-    bottom: auto;
-    left: auto;
-    z-index: -100;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    opacity: 0; }
-  .during .topStatus .willRaiseContainer {
-    background-image: none; }
-  .during .topStatus .tokenStatusContainer {
-    background-position: top;
-    background-image: linear-gradient(to right, #d19da1 20%, rgba(255, 255, 255, 0) 0%);
-    background-size: 5px 1px;
-    background-repeat: repeat-x; }
-    .ie9 .during .topStatus .tokenStatusContainer {
-      border-top: 1px dotted #d19da1; }
+.during .topStatus .eventCountDownContainer {
+  padding-bottom: 30px; }
 
 .graphLink {
   text-align: right;
@@ -752,32 +784,6 @@ a.generalButton,
       font-size: 30px;
       margin-bottom: 0; }
 
-.checkStatus {
-  padding-top: 34px;
-  padding-bottom: 27px;
-  background-position: bottom;
-  background-image: linear-gradient(to right, #d19da1 20%, rgba(255, 255, 255, 0) 0%);
-  background-size: 5px 1px;
-  background-repeat: repeat-x; }
-  .ie9 .checkStatus {
-    border-bottom: 1px dotted #d19da1; }
-  .checkStatus a {
-    position: relative;
-    display: inline-block;
-    color: #ffffff;
-    font-size: 16px;
-    line-height: 24px;
-    text-transform: uppercase;
-    padding-left: 48px; }
-    .checkStatus a i {
-      font-size: 30px;
-      position: absolute;
-      top: -5px;
-      right: auto;
-      bottom: auto;
-      left: 0;
-      z-index: 1; }
-
 .contributeTerm .checkbox-form input[type=checkbox].input-checkbox {
   position: absolute;
   overflow: hidden;
@@ -803,6 +809,9 @@ a.generalButton,
 .contributeTerm {
   padding-top: 27px;
   padding-bottom: 27px; }
+  .contributeTerm h2 {
+    text-align: center;
+    margin-bottom: 20px; }
   .contributeTerm .checkbox-group-container .label-section label {
     display: block;
     margin-bottom: 16px; }
@@ -829,29 +838,9 @@ a.generalButton,
     margin-top: 25px; }
 
 .graphSection {
-  margin-top: 25px;
-  position: fixed;
-  top: -100000%;
-  right: -100000%;
-  bottom: auto;
-  left: auto;
-  z-index: -100;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  -moz-transition: opacity 0.3s ease;
-  -webkit-transition: opacity 0.3s ease;
-  -o-transition: opacity 0.3s ease; }
-  .graphSection.show {
-    position: static;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    filter: alpha(opacity=100);
-    -moz-opacity: 1;
-    -khtml-opacity: 1;
-    opacity: 1; }
+  margin-top: 25px; }
+  .graphSection h2 {
+    font-size: 20px; }
   .graphSection .no-margin {
     margin: 0 !important; }
   .graphSection .graphSectionBlock {
@@ -859,8 +848,8 @@ a.generalButton,
     margin-bottom: 38px; }
   .graphSection .graphContainer {
     display: inline-block;
-    width: 290px;
-    height: 160px; }
+    /*width: 290px;
+        height: 160px;*/ }
 
 .backSection {
   text-align: right;
@@ -927,12 +916,44 @@ a.generalButton,
     .questionContainer .anwser > *:last-child {
       margin-bottom: 0; }
 
-.duringFirst {
+.howContribute {
+  text-align: center;
+  padding-top: 27px;
+  padding-bottom: 27px; }
+  .howContribute h2 {
+    text-align: center;
+    margin-bottom: 20px; }
+  .howContribute p a {
+    color: #ffffff;
+    text-decoration: underline; }
+    .howContribute p a:hover {
+      text-decoration: none; }
+  .howContribute .contributeContract {
+    display: inline-block;
+    background: rgba(127, 2, 18, 0.5);
+    padding: 10px;
+    margin-bottom: 15px;
+    max-width: 680px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px; }
+    .howContribute .contributeContract p {
+      letter-spacing: 1px;
+      word-break: break-all; }
+    .howContribute .contributeContract > *:last-child {
+      margin-bottom: 0; }
+    .howContribute .contributeContract .contributeContractTitle {
+      text-transform: uppercase;
+      font-size: 20px; }
+    .howContribute .contributeContract .contributeContractDetail {
+      text-transform: uppercase; }
+
+.duringFirst, .contributeTerm {
   transition: opacity 0.3s ease;
   -moz-transition: opacity 0.3s ease;
   -webkit-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease; }
-  .duringFirst.hideDiv {
+  .duringFirst.hideDiv, .contributeTerm.hideDiv {
     position: fixed;
     top: -100000%;
     right: -100000%;
@@ -944,8 +965,29 @@ a.generalButton,
     -moz-opacity: 0;
     -khtml-opacity: 0;
     opacity: 0; }
+  .duringFirst .eventCountDownDate, .contributeTerm .eventCountDownDate {
+    display: block;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    letter-spacing: 1px; }
+  .duringFirst .eventCountDownBlock, .contributeTerm .eventCountDownBlock {
+    display: block;
+    margin-left: 15px;
+    margin-right: 15px;
+    letter-spacing: 1px; }
 
-.duringFAQ {
+/*.duringGraph, .howContribute {
+    @include position(fixed,-100000%,-100000%,auto,auto,-100);
+    @include opacity(0,0);
+    @include transition(opacity 0.3s ease);
+
+    &.show {
+        position: static;
+        @include opacity(1,100);
+    }
+}*/
+.howContribute {
   position: fixed;
   top: -100000%;
   right: -100000%;
@@ -961,7 +1003,7 @@ a.generalButton,
   -moz-transition: opacity 0.3s ease;
   -webkit-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease; }
-  .duringFAQ.show {
+  .howContribute.show {
     position: static;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
@@ -969,14 +1011,58 @@ a.generalButton,
     -khtml-opacity: 1;
     opacity: 1; }
 
+.contributeNavigation {
+  float: right;
+  width: 70%;
+  margin-right: 15px;
+  margin-top: 10px; }
+  .contributeNavigation ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0;
+    text-align: right; }
+    .contributeNavigation ul li {
+      display: inline-block;
+      margin-left: 15px; }
+      .contributeNavigation ul li a {
+        display: block;
+        color: #ffffff; }
+      .contributeNavigation ul li i {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 26px; }
+
+.backNav {
+  display: none; }
+  .backNav ul li {
+    font-size: 18px; }
+    .backNav ul li i {
+      font-size: 15px;
+      margin-right: 10px; }
+
+.continueButton[disabled=disabled] {
+  color: #aaaaaa;
+  border-color: #aaaaaa; }
+  .continueButton[disabled=disabled]:hover {
+    background-color: transparent; }
+
 @media (min-width: 992px) {
-  .during .topStatus .tokenStatusContainer {
+  .during .topStatus .eventCountDown {
     background-image: none; }
+  .during .topStatus .eventCountDownContainer {
+    padding-bottom: 25px; }
   .graphLink {
     padding-bottom: 25px; }
   .barStatusSection {
-    padding: 29px 68px 0;
-    background-image: none; }
+    padding: 0 68px 44px 68px;
+    background-image: none;
+    background-position: bottom;
+    background-image: linear-gradient(to right, #d19da1 20%, rgba(255, 255, 255, 0) 0%);
+    background-size: 5px 1px;
+    background-repeat: repeat-x; }
+    .ie9 .barStatusSection {
+      border-bottom: 1px dotted #d19da1; }
     .barStatusSection .barStatusTotal {
       margin-bottom: 9px; }
     .barStatusSection .barTotal {
@@ -1007,13 +1093,11 @@ a.generalButton,
         z-index: 1; }
       .barStatusSection .barTarget .barTargetAmount {
         margin-bottom: 4px; }
-  .checkStatus {
-    padding: 50px 68px 48px; }
-    .checkStatus a {
-      font-size: 18px;
-      letter-spacing: 1px; }
   .contributeTerm {
-    padding-top: 47px; }
+    padding-top: 43px; }
+    .contributeTerm h2 {
+      margin-bottom: 30px;
+      font-size: 30px; }
     .contributeTerm .checkboxWrapper {
       margin-bottom: 5px; }
     .contributeTerm .checkbox-form label {
@@ -1024,14 +1108,23 @@ a.generalButton,
       background-position: 0 4px !important; }
     .contributeTerm .confirmContinue {
       margin-top: 45px; }
-  .graphSection h2 {
-    margin-bottom: 30px; }
-  .graphSection .graphSectionBlock {
-    margin-bottom: 0; }
-  .graphSection .graphContainer {
-    width: 100%;
-    max-width: 407px;
-    height: 226px; }
+  .graphSection {
+    margin-top: 40px;
+    padding-top: 42px;
+    background-position: top;
+    background-image: linear-gradient(to right, #d19da1 20%, rgba(255, 255, 255, 0) 0%);
+    background-size: 5px 1px;
+    background-repeat: repeat-x; }
+    .ie9 .graphSection {
+      border-top: 1px dotted #d19da1; }
+    .graphSection h2 {
+      font-size: 24px;
+      margin-bottom: 21px; }
+    .graphSection .graphSectionBlock {
+      margin-bottom: 0; }
+    .graphSection .graphContainer {
+      /*max-width: 407px;
+            height: 226px;*/ }
   .backSection {
     padding: 14px 0 20px; }
   .questionContainer .question {
@@ -1052,5 +1145,44 @@ a.generalButton,
       margin-bottom: 0; }
   .duringFAQ .iconLinks {
     background-image: none;
-    margin-top: 0; } }
+    margin-top: 0; }
+  .howContribute {
+    padding-top: 43px; }
+    .howContribute h2 {
+      font-size: 30px;
+      margin-bottom: 27px; }
+    .howContribute p {
+      margin-bottom: 22px; }
+    .howContribute .contributeContract {
+      width: 680px;
+      padding: 28px 20px 20px;
+      margin-bottom: 19px; }
+      .howContribute .contributeContract .contributeContractTitle {
+        font-size: 30px; }
+      .howContribute .contributeContract .contributeContractDetail {
+        font-size: 24px; }
+    .howContribute > *:last-child {
+      margin-bottom: 0; }
+  .contributeNavigation {
+    margin-top: 31px;
+    margin-right: 27px; }
+    .contributeNavigation ul li {
+      font-size: 18px;
+      margin-left: 33px; }
+      .contributeNavigation ul li a {
+        text-transform: uppercase;
+        letter-spacing: 1px; }
+        .contributeNavigation ul li a:hover span {
+          text-decoration: underline; }
+      .contributeNavigation ul li i {
+        margin-right: 10px; }
+  .duringGraph .mainTitleSection h2 {
+    margin-bottom: 27px; }
+  .duringGraph .topStatus > *:first-child {
+    margin-bottom: 29px; }
+  .duringFirst .eventCountDownDate, .contributeTerm .eventCountDownDate {
+    display: inline-block;
+    margin-top: 0; }
+  .duringFirst .eventCountDownBlock, .contributeTerm .eventCountDownBlock {
+    display: inline-block; } }
 

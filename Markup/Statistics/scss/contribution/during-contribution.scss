@@ -3,19 +3,8 @@
 
 .during {
     .topStatus {
-        @include transition(opacity 0.3s ease);
-
-        &.hideStatus {
-            @include position(fixed,-100000%,-100000%,auto,auto,-100);
-            @include opacity(0,0);
-        }
-
-        .willRaiseContainer {
-            background-image: none;
-        }
-
-        .tokenStatusContainer {
-            @include dottedBorder(#d19da1,horizontal,top,5px,1px);
+        .eventCountDownContainer {
+            padding-bottom: 30px;
         }
     }
 }
@@ -90,26 +79,6 @@
         }
     }
 }
-.checkStatus {
-    padding-top:34px;
-    padding-bottom:27px;
-    @include dottedBorder(#d19da1,horizontal,bottom,5px,1px);
-
-    a {
-        position: relative;
-        display: inline-block;
-        color: #ffffff;
-        font-size: 16px;
-        line-height: 24px;
-        text-transform: uppercase;
-        padding-left: 48px;
-
-        i {
-            font-size: 30px;
-            @include position(absolute,-5px,auto,auto,0,1);
-        }
-    }
-}
 %input-checkbox-general {
     position: absolute;
     overflow: hidden;
@@ -136,6 +105,11 @@
 .contributeTerm {
     padding-top:27px;
     padding-bottom:27px;
+
+    h2{
+        text-align:center;
+        margin-bottom:20px;
+    }
 
     .checkbox-group-container {
         .label-section {
@@ -194,13 +168,8 @@
 .graphSection {
     margin-top: 25px;
 
-    @include position(fixed,-100000%,-100000%,auto,auto,-100);
-    @include opacity(0,0);
-    @include transition(opacity 0.3s ease);
-
-    &.show {
-        position: static;
-        @include opacity(1,100);
+    h2{
+        font-size:20px;
     }
 
     .no-margin {
@@ -214,8 +183,8 @@
 
     .graphContainer {
         display: inline-block;
-        width: 290px;
-        height: 160px;
+        /*width: 290px;
+        height: 160px;*/
     }
 }
 .backSection {
@@ -299,16 +268,91 @@
     }
 }
 
-.duringFirst {
+.howContribute {
+    text-align: center;
+    padding-top: 27px;
+    padding-bottom: 27px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        a {
+            color: #ffffff;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .contributeContract {
+        display: inline-block;
+        background: rgba(#7f0212,0.5);
+        padding: 10px;
+        margin-bottom: 15px;
+        max-width: 680px;
+        @include border-radius(10px);
+
+        p {
+            letter-spacing: 1px;
+            word-break: break-all;
+        }
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .contributeContractTitle {
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+
+        .contributeContractDetail{
+            text-transform:uppercase;
+        }
+    }
+}
+
+.duringFirst, .contributeTerm {
     @include transition(opacity 0.3s ease);
 
     &.hideDiv {
         @include position(fixed,-100000%,-100000%,auto,auto,-100);
         @include opacity(0,0);
     }
+
+    .eventCountDownDate {
+        display: block;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-top: 10px;
+        letter-spacing: 1px;
+    }
+
+    .eventCountDownBlock {
+        display: block;
+        margin-left: 15px;
+        margin-right: 15px;
+        letter-spacing: 1px;
+    }
 }
 
-.duringFAQ {
+/*.duringGraph, .howContribute {
+    @include position(fixed,-100000%,-100000%,auto,auto,-100);
+    @include opacity(0,0);
+    @include transition(opacity 0.3s ease);
+
+    &.show {
+        position: static;
+        @include opacity(1,100);
+    }
+}*/
+
+.howContribute {
     @include position(fixed,-100000%,-100000%,auto,auto,-100);
     @include opacity(0,0);
     @include transition(opacity 0.3s ease);
@@ -319,15 +363,67 @@
     }
 }
 
+.contributeNavigation{
+    float:right;
+    width:70%;
+    margin-right:15px;
+    margin-top:10px;
+    ul{
+        padding:0;
+        margin:0;
+        list-style:none;
+        font-size:0;
+        text-align:right;
+        li{
+            display:inline-block;
+            margin-left:15px;
+            a{
+                display:block;
+                color:#ffffff;
+            }
+            i{
+                display:inline-block;
+                vertical-align:middle;
+                font-size:26px;
+            }
+        }
+    }
+}
+.backNav{
+    display:none;
+    ul{
+        li{
+            font-size:18px;
+            i{
+                font-size:15px;
+                margin-right:10px;
+            }
+        }
+    }
+}
+
+.continueButton[disabled=disabled] {
+    color: #aaaaaa;
+    border-color: #aaaaaa;
+    &:hover{
+        background-color:transparent;
+    }
+}
+
 @media (min-width: $tabletSize) {
+
 }
 
 @media (min-width: $labtopSize) {
     .during {
         .topStatus {
 
-            .tokenStatusContainer {
+            .eventCountDown {
                 background-image: none;
+            }
+
+            .eventCountDownContainer{
+                padding-bottom:25px;
             }
         }
     }
@@ -335,8 +431,9 @@
         padding-bottom:25px;
     }
     .barStatusSection {
-        padding:29px 68px 0;
-        background-image:none;
+        padding: 0 68px 44px 68px;
+        background-image: none;
+        @include dottedBorder(#d19da1,horizontal,bottom,5px,1px);
 
         .barStatusTotal {
             margin-bottom: 9px;
@@ -358,12 +455,6 @@
             padding-right: 175px;
         }
 
-        .barWrapper {
-        }
-
-        .barstatus {
-        }
-
         .barTarget {
             text-align: center;
             padding-left: 127px;
@@ -381,20 +472,17 @@
             }
         }
     }
-    .checkStatus {
-        padding: 50px 68px 48px;
-
-        a {
-            font-size:18px;
-            letter-spacing:1px;
-        }
-    }
 
     .contributeTerm {
-        padding-top: 47px;
+        padding-top: 43px;
 
-        .checkboxWrapper{
-            margin-bottom:5px;
+        h2 {
+            margin-bottom: 30px;
+            font-size: 30px;
+        }
+
+        .checkboxWrapper {
+            margin-bottom: 5px;
         }
 
         .checkbox-form {
@@ -405,27 +493,32 @@
 
             .checkbox-label {
                 background-size: auto 20px;
-                background-position:0 4px !important;
+                background-position: 0 4px !important;
             }
         }
 
         .confirmContinue {
-            margin-top:45px;
+            margin-top: 45px;
         }
     }
 
     .graphSection {
-        h2{
-            margin-bottom:30px;
+        margin-top:40px;
+        padding-top:42px;
+        @include dottedBorder(#d19da1,horizontal,top,5px,1px);
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 21px;
         }
+
         .graphSectionBlock {
-            margin-bottom:0;
+            margin-bottom: 0;
         }
 
         .graphContainer {
-            width: 100%;
-            max-width:407px;
-            height: 226px;
+            /*max-width: 407px;
+            height: 226px;*/
         }
     }
 
@@ -467,6 +560,85 @@
         .iconLinks{
             background-image:none;
             margin-top:0;
+        }
+    }
+    .howContribute {
+        padding-top: 43px;
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 27px;
+        }
+
+        p {
+            margin-bottom: 22px;
+        }
+
+        .contributeContract {
+            width: 680px;
+            padding: 28px 20px 20px;
+            margin-bottom:19px;
+
+            .contributeContractTitle {
+                font-size: 30px;
+            }
+
+            .contributeContractDetail {
+                font-size: 24px;
+            }
+        }
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .contributeNavigation {
+        margin-top: 31px;
+        margin-right: 27px;
+
+        ul {
+            li {
+                font-size: 18px;
+                margin-left: 33px;
+
+                a {
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+
+                    &:hover {
+                        span {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    .duringGraph {
+        .mainTitleSection {
+            h2 {
+                margin-bottom: 27px;
+            }
+        }
+
+        .topStatus{
+            >  *:first-child{
+                margin-bottom:29px;
+            }
+        }
+    }
+    .duringFirst, .contributeTerm {
+        .eventCountDownDate {
+            display: inline-block;
+            margin-top: 0;
+        }
+
+        .eventCountDownBlock {
+            display: inline-block;
         }
     }
 }

@@ -2,12 +2,13 @@
 @import '../mixins.scss';
 
 .htmlContribution {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 .contribution {
-    overflow:hidden;
-    color:#ffffff;
+    overflow: hidden;
+    color: #ffffff;
     @include gradientLinearHorizontal(#7b0211, #ae171f, 1, 1);
+    background-attachment: fixed;
 }
 .contributionBG {
     min-height: 100%;
@@ -23,10 +24,13 @@
     }
 }
 .contributionHeader{
+    position:relative;
+    z-index:9;
     height:50px;
     .logo{
         padding-top:12px;
         padding-left:9px;
+        float:left;
         img{
             width:71px;
         }
@@ -36,16 +40,17 @@
     > .container{
         width:100%;
         max-width:1260px;
-        padding-right:0;
+        /*padding-right:0;*/
     }
 }
 .mainContent {
-    overflow-y: auto;
+    /*overflow-y: auto;
     overflow-x:hidden;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 100px);*/
+    padding-bottom:30px;
 
     .mainContentWrapper {
-        padding-right: 30px;
+        /*padding-right: 30px;*/
     }
 }
 .scrollbar-inner > .scroll-element.scroll-y {
@@ -86,10 +91,11 @@
         }
     }
     .contentHeight {
-        height: calc(100vh - 82px);
+        /*height: calc(100vh - 82px);*/
     }
     .mainContent {
-        height: calc(100% - 28%);
+        /*height: calc(100% - 30px);*/
+        margin-bottom:50px;
     }
 }
 

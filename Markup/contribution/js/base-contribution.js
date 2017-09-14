@@ -3,7 +3,7 @@
 }
 
 $(window).on('load', function () {
-    initialScrollbar('.mainContent');
+    /*initialScrollbar('.mainContent');*/
     equalHeight('.statusColumn');
 });
 $(window).on('resize', function () {
