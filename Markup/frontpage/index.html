@@ -641,12 +641,16 @@ Phasellus mauris felis, dictum et arcu at, commodo condimentum tortor. </p>
     <footer class="footer" id="contactSection">
         <div class="container">
             <div class="newsletterWrapper">
-                <form action="" method="post" class="">
+                <form action="https://exchange.us16.list-manage.com/subscribe/post-json?u=721bab1b8df508b002d0f302c&amp;id=93d961f5fe&c=?" method="get"  class="" novalidate>
                     <div class="input-newsLetter">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email for sign up to email list" />
-                        <button class="btn-sendEmail" type="submit"><i class="iconFont-h-mail"></i></button>
+                        <input type="email" class="form-control"  name="EMAIL" id="EMAIL" placeholder="Enter your email for sign up to email list" />
+                        <button id="btnSubmit" class="btn-sendEmail" type="submit"><i class="iconFont-h-mail"></i></button>
                     </div>
                 </form>
+            </div>
+            <div>
+                <div id="errorSubscribe" style=" display: none;float: left;" class="alert alert-danger"></div>
+                <div id="successSubscribe" style=" display: none;float: left;" class="alert alert-success"></div>
             </div>
             <div class="followMeWrapper">
                 <ul class="listSocial">
@@ -654,7 +658,6 @@ Phasellus mauris felis, dictum et arcu at, commodo condimentum tortor. </p>
                     <li><a href="" target="_blank" class="ico-social"><img src="images/ico-reddit.png" alt=""></a></li>
                     <li><a href="" target="_blank" class="ico-social"><img src="images/ico-slack.png"></img></a></li>
                     <li><a href="" target="_blank" class="ico-social"><img src="images/ico-twitter.png"></img></a></li>
-
                 </ul>
 
                 <div class="emailContact">Get in touch: <a href="mailto:hello@hoard.exchange">hello@hoard.exchange</a></div>
@@ -677,5 +680,48 @@ Phasellus mauris felis, dictum et arcu at, commodo condimentum tortor. </p>
     <script type="text/javascript" src="js/module-investor.js"></script>
     <script type="text/javascript" src="js/module-team.js"></script>
     <script type="text/javascript" src="js/module-slideshow.js"></script>
+    <script>
+        $(document).ready( function () {
+            var $form = $('form');
+    
+            if ( $form.length > 0 ) {
+                $('#btnSubmit').bind('click', function ( event ) {
+                    if ( event ) event.preventDefault();
+
+                    $( "#successSubscribe" ).hide();
+                    $( "#errorSubscribe" ).hide();
+    
+                    register($form);
+                    //if ( validate_input($form) ) { register($form); }
+                });
+            }
+        });
+    
+        function register($form) {
+            $.ajax({
+                type: $form.attr('method'),
+                url: $form.attr('action'),
+                data: $form.serialize(),
+                cache       : false,
+                dataType    : 'json',
+                contentType: "application/json; charset=utf-8",
+                error       : function(err) { 
+                    console.log("Could not connect to the registration server. Please try again later.");
+                    console.log(err);
+                 },
+                success     : function(data) {
+                    console.log(data.msg);
+                    if (data.result != "success") {
+                        $( "#errorSubscribe" ).html(data.msg);
+                        $( "#errorSubscribe" ).slideDown( data.msg ); 
+                       
+                    } else {
+                        $( "#successSubscribe" ).html(data.msg);
+                        $( "#successSubscribe" ).slideDown( data.msg );
+                    }
+                }
+            });
+        }
+        </script>
 </body>
 </html>
