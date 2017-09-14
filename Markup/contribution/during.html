@@ -54,16 +54,16 @@
                                 <div class="col-xs-12">
                                     <div class="barStatusSection">
                                         <div class="barStatusTotal">
-                                            <p class="barTotal">130,233</p>
+                                            <div id="totalEth"><p class="barTotal">0</p></div>
                                             <p class="barTotalText">total eth sent to the contract</p>
                                         </div>
                                         <div class="barContainer">
                                             <div class="barWrapper">
-                                                <div class="barstatus" style="width:50%;"></div>
+                                                <div class="barstatus" id="barProgressStatus" style="width:1%;"></div>
                                             </div>
                                             <div class="barTarget">
                                                 <img src="images/total-logo.png" class="hidden-xs hidden-sm" alt=""/>
-                                                <p class="barTargetAmount">150,000</p>
+                                                <div id="targetEth"><p class="barTargetAmount">1000,000</p></div>
                                                 <p class="barTargetText">eth target</p>
                                             </div>
                                         </div>
@@ -132,3 +132,21 @@
     <script type="text/javascript" src="js/during-contribution.js"></script>
 </body>
 </html>
+<script>
+ $(document).ready( function () {
+    var targetEth = 1000000;
+    $("#targetEth").html("<p class='barTargetAmount'>"+targetEth+"</p>");
+    $.ajax({url: "https://api.etherscan.io/api?module=account&action=balance&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae&tag=latest&apikey=YourApiKeyToken", success: function(result){
+            var totalWei = result.result;
+            var totalEth = totalWei/1000000000000000000;
+            $("#totalEth").html("<p class='barTotal'>"+totalEth+"</p>");
+            var progress = (totalEth/targetEth) * 100;
+            var pc = progress+"%";
+            $("#barProgressStatus").css({width:pc});
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+ });
+</script>
