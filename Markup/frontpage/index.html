@@ -647,13 +647,16 @@ Phasellus mauris felis, dictum et arcu at, commodo condimentum tortor. </p>
                     </div>
                 </form>
             </div>
+            <div>
+                <div id="errorSubscribe" style=" display: none;float: left;" class="alert alert-danger"></div>
+                <div id="successSubscribe" style=" display: none;float: left;" class="alert alert-success"></div>
+            </div>
             <div class="followMeWrapper">
                 <ul class="listSocial">
                     <li><a href="" target="_blank" class="ico-social ico-github"><i class="iconFont-h-github"></i></a></li>
                     <li><a href="" target="_blank" class="ico-social"><img src="images/ico-reddit.png" alt=""></a></li>
                     <li><a href="" target="_blank" class="ico-social"><img src="images/ico-slack.png"></img></a></li>
                     <li><a href="" target="_blank" class="ico-social"><img src="images/ico-twitter.png"></img></a></li>
-
                 </ul>
 
                 <div class="emailContact">Get in touch: <a href="mailto:hello@hoard.exchange">hello@hoard.exchange</a></div>
@@ -683,6 +686,9 @@ Phasellus mauris felis, dictum et arcu at, commodo condimentum tortor. </p>
             if ( $form.length > 0 ) {
                 $('#btnSubmit').bind('click', function ( event ) {
                     if ( event ) event.preventDefault();
+
+                    $( "#successSubscribe" ).hide();
+                    $( "#errorSubscribe" ).hide();
     
                     register($form);
                     //if ( validate_input($form) ) { register($form); }
@@ -703,12 +709,14 @@ Phasellus mauris felis, dictum et arcu at, commodo condimentum tortor. </p>
                     console.log(err);
                  },
                 success     : function(data) {
-                    console.log(data.result);
+                    console.log(data.msg);
                     if (data.result != "success") {
-                        // Something went wrong, do something to notify the user. maybe alert(data.msg);
+                        $( "#errorSubscribe" ).html(data.msg);
+                        $( "#errorSubscribe" ).slideDown( data.msg ); 
                        
                     } else {
-                        // It worked, carry on...
+                        $( "#successSubscribe" ).html(data.msg);
+                        $( "#successSubscribe" ).slideDown( data.msg );
                     }
                 }
             });
