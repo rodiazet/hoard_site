@@ -1,9 +1,4 @@
-﻿function initialScrollbar(element) {
-    $(element).scrollbar();
-}
-
-$(window).on('load', function () {
-    /*initialScrollbar('.mainContent');*/
+﻿$(window).on('load', function () {
     equalHeight('.statusColumn');
 });
 $(window).on('resize', function () {

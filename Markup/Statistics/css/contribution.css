@@ -298,9 +298,6 @@ a.generalButton,
 /* font color */
 /* page sections background color */
 /*alert Message*/
-.htmlContribution {
-  /*overflow: hidden;*/ }
-
 .contribution {
   overflow: hidden;
   color: #ffffff;
@@ -348,16 +345,10 @@ a.generalButton,
 
 .mainContentContainer > .container {
   width: 100%;
-  max-width: 1260px;
-  /*padding-right:0;*/ }
+  max-width: 1260px; }
 
 .mainContent {
-  /*overflow-y: auto;
-    overflow-x:hidden;
-    height: calc(100vh - 100px);*/
   padding-bottom: 30px; }
-  .mainContent .mainContentWrapper {
-    /*padding-right: 30px;*/ }
 
 .scrollbar-inner > .scroll-element.scroll-y {
   width: 5px;
@@ -389,10 +380,7 @@ a.generalButton,
       padding-left: 37px; }
       .contributionHeader .logo img {
         width: 107px; }
-  .contentHeight {
-    /*height: calc(100vh - 82px);*/ }
   .mainContent {
-    /*height: calc(100% - 30px);*/
     margin-bottom: 50px; } }
 
 /* font size */
