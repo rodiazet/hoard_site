@@ -103,9 +103,10 @@
                         pad: 4
                     },
                     paper_bgcolor: '#a8101d',
-                    plot_bgcolor: '#a8101d'
+                    plot_bgcolor: '#a8101d',
+                    font:{color:'#FFFFFF'}
                 };
-                Plotly.newPlot('myGraph1', data,layout);
+                Plotly.newPlot('myGraph1', data,layout,{staticPlot: true});
             },
             error: function(err){
                 $("#div3").html(err);
@@ -130,9 +131,10 @@
                         pad: 4
                     },
                     paper_bgcolor: '#a8101d',
-                    plot_bgcolor: '#a8101d'
+                    plot_bgcolor: '#a8101d',
+                    font:{color:'#FFFFFF'}
                 };
-                Plotly.newPlot('myGraph2', data,layout);
+                Plotly.newPlot('myGraph2', data,layout,{staticPlot: true});
             },
             error: function(err){
                 $("#div3").html(err);
