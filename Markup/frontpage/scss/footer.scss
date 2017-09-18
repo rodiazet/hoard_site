@@ -126,6 +126,25 @@
     display: inline-block;
 }
 
+.alertContainer {
+    text-align: center;
+    width: 100%;
+    max-width: 410px;
+    margin: 20px auto 0;
+
+    .alert-danger {
+        background: $generalRed;
+        color: #ffffff;
+        border-color: $generalRed;
+    }
+
+    .alert-success {
+        background: $textSuccess;
+        color: #ffffff;
+        border-color: $textSuccess;
+    }
+}
+
 .no-touchevents {
     .followMeWrapper {
         .ico-social {
