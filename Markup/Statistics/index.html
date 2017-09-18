@@ -46,7 +46,7 @@
                                 <div class="col-xs-12 col-md-6 statisticColumn statusColumn">
                                     <div class="statisticContainer">
                                         <h2>Unique participants</h2>
-                                        <p class="statisticValue">1234</p>
+                                        <div id="div_unqiue_accs" class="statisticValue">12345</div>
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +109,7 @@
                 Plotly.newPlot('myGraph1', data,layout,{staticPlot: true});
             },
             error: function(err){
-                $("#div3").html(err);
+                console.log(err);
             }
             });
 
@@ -137,7 +137,14 @@
                 Plotly.newPlot('myGraph2', data,layout,{staticPlot: true});
             },
             error: function(err){
-                $("#div3").html(err);
+                console.log(err);
+            }
+            });
+            $.ajax({url: "https://statsapi.hoard.exchange/api/getNumberOfUniqueAccounts", success: function(result){
+                $("#div_unqiue_accs").html(result);
+            },
+            error: function(err){
+                console.log(err);
             }
             });
     });
