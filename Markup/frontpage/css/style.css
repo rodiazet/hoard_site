@@ -676,7 +676,7 @@ a.generalButton,
   .topSection .topSectionContent {
     text-align: center;
     color: #ffffff;
-    font-family: 'Roboto-Thin';
+    font-family: 'Roboto-Light';
     padding-top: 125px; }
     .topSection .topSectionContent p {
       margin-bottom: 0; }
@@ -1273,10 +1273,11 @@ a.generalButton,
       z-index: 99; }
   .detailPerson {
     font-family: 'Roboto-Light';
-    width: 635px;
-    min-height: 635px;
+    width: 508px;
+    min-height: 508px;
     max-height: none;
-    font-size: 15px;
+    font-size: 17px;
+    line-height: 30px;
     text-align: center;
     padding: 94px;
     background: #af1920;
@@ -1332,6 +1333,7 @@ a.generalButton,
       color: #ffffff; }
     .detailPerson .detailPersonText {
       width: 447px;
+      padding: 0 20px;
       position: absolute;
       top: 50%;
       right: auto;

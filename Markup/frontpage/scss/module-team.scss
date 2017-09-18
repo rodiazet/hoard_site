@@ -257,10 +257,11 @@
     }
     .detailPerson {
         font-family: 'Roboto-Light';
-        width: 635px;
-        min-height: 635px;
+        width: 508px;
+        min-height: 508px;
         max-height: none;
-        font-size: 15px;
+        font-size: 17px;
+        line-height:30px;
         text-align: center;
         padding: 94px;
         background: $generalRed;
@@ -291,6 +292,7 @@
 
         .detailPersonText {
             width: 447px;
+            padding:0 20px;
             @include position(absolute,50%,auto,auto,50%,0);
             @include transform(translate(-50%,-50%));
         }
