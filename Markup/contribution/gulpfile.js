@@ -7,7 +7,6 @@ var del = require('del');
 var cleanCSS = require('gulp-clean-css');
 var runSequence = require('run-sequence');
 var git = require('gulp-git');
-var minifyHTML = require('gulp-minify-html');
 
 gulp.task('minifyjs', function() {
     return gulp.src('build/js/all.js')
@@ -20,7 +19,7 @@ gulp.task('concatcss', function() {
     'css/font-awesome.min.css',
     'css/jquery.classycountdown.min.css',
     'css/lity.min.css',
-    'css/style.css'])
+    'css/style.min.css'])
     .pipe(concat('all.css'))
     .pipe(gulp.dest('build/css/'));
 });
@@ -53,7 +52,7 @@ gulp.task('minifycss', function() {
   });
 
 gulp.task('replacehtml', function() {
-    return gulp.src('index_tags_replaced.html')
+    return gulp.src('index.html')
       .pipe(htmlreplace({
           'css':'css/all.css',
           'js': 'js/minjs/all.js'
@@ -69,6 +68,9 @@ gulp.task('copy', function () {
     gulp.src('images/**/*')
         .pipe(copy())
         .pipe(gulp.dest('build/images/'));
+    gulp.src('hidden_resources/**/*')
+        .pipe(copy())
+        .pipe(gulp.dest('build/hidden_resources/'));
     return gulp.src('scss/**/*')
         .pipe(copy())
         .pipe(gulp.dest('build/scss/'));
@@ -78,14 +80,6 @@ gulp.task('cleanup',function(){
     return del('build/');
 });
 
-gulp.task('minifyhtml', function() {
-    var opts = {comments:true,spare:true};
-    
-  gulp.src('build/index_tags_replaced.html')
-    .pipe(minifyHTML(opts))
-    .pipe(gulp.dest('build/index.html'))
-});
-
 gulp.task('build', function(callback) {
     runSequence('cleanup',
                 'copy', 
@@ -93,8 +87,6 @@ gulp.task('build', function(callback) {
                 'minifyjs',
                 'replacehtml',
                 'concatcss',
-                'minifycss',
-                'minifyhtml',
                 callback);
 });
 
