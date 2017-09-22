@@ -6,7 +6,6 @@ var copy = require('gulp-contrib-copy');
 var del = require('del');
 var cleanCSS = require('gulp-clean-css');
 var runSequence = require('run-sequence');
-var buildPath = 'build';
 
 gulp.task('minifyjs', function() {
     return gulp.src('build/js/all.js')
@@ -14,7 +13,17 @@ gulp.task('minifyjs', function() {
     .pipe(gulp.dest('build/js/minjs/'))
 });
 
-gulp.task('concat', function() {
+gulp.task('concatcss', function() {
+    return gulp.src(['css/bootstrap.min.css',
+    'css/font-awesome.min.css',
+    'css/jquery.classycountdown.min.css',
+    'css/lity.min.css',
+    'css/style.min.css'])
+    .pipe(concat('all.css'))
+    .pipe(gulp.dest('build/css/'));
+});
+
+gulp.task('concatjs', function() {
     return gulp.src(['js/jquery-2.2.3.min.js',
     'js/modernizr-3.3.1.min.js',
     'js/bootstrap.min.js',
@@ -44,6 +53,7 @@ gulp.task('minifycss', function() {
 gulp.task('replacehtml', function() {
     return gulp.src('index.html')
       .pipe(htmlreplace({
+          'css':'css/all.css',
           'js': 'js/minjs/all.js'
       }))
       .pipe(gulp.dest('build/'));
@@ -69,11 +79,17 @@ gulp.task('cleanup',function(){
 gulp.task('build', function(callback) {
     runSequence('cleanup',
                 'copy', 
-                'concat',
+                'concatjs',
                 'minifyjs',
                 'replacehtml',
-                'minifycss',
+                'concatcss',
                 callback);
+});
+
+gulp.task('clone', function(){
+    git.clone('git@bitbucket.org:treshombres/website.git', function (err) {
+      if (err) throw err;
+    });
 });
 
 
