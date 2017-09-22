@@ -7,7 +7,7 @@ var del = require('del');
 var cleanCSS = require('gulp-clean-css');
 var runSequence = require('run-sequence');
 var git = require('gulp-git');
-var minifyHTML = require('gulp-minify-html');
+var htmlmin = require('gulp-htmlmin');
 
 gulp.task('minifyjs', function() {
     return gulp.src('build/js/all.js')
@@ -79,11 +79,9 @@ gulp.task('cleanup',function(){
 });
 
 gulp.task('minifyhtml', function() {
-    var opts = {comments:true,spare:true};
-    
-  gulp.src('build/index_tags_replaced.html')
-    .pipe(minifyHTML(opts))
-    .pipe(gulp.dest('build/index.html'))
+    return gulp.src('build/index_tags_replaced.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('build/index.html'));
 });
 
 gulp.task('build', function(callback) {
