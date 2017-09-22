@@ -6,6 +6,7 @@ var copy = require('gulp-contrib-copy');
 var del = require('del');
 var cleanCSS = require('gulp-clean-css');
 var runSequence = require('run-sequence');
+var git = require('gulp-git');
 
 gulp.task('minifyjs', function() {
     return gulp.src('build/js/all.js')
@@ -86,10 +87,6 @@ gulp.task('build', function(callback) {
                 callback);
 });
 
-gulp.task('clone', function(){
-    git.clone('git@bitbucket.org:treshombres/website.git', function (err) {
-      if (err) throw err;
-    });
-});
+
 
 
