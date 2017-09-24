@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Statistics</title>
     <link rel="shortcut icon" type="image/png" href="images/total-logo.png" />
+    <!-- build:css -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/contribution.min.css" />
+     <!-- endbuild -->
 </head>
 <body class="contribution">
     <header class="contributionHeader">
@@ -74,78 +76,14 @@
             </div>
         </div>
     </div>
+     <!-- build:js -->
     <script type="text/javascript" src="js/plotly.min.js"></script> 
     <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src="js/modernizr-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/base-contribution.js"></script>
+    <script type="text/javascript" src="js/showstats.js"></script>
+     <!-- endbuild -->
 </body>
 </html>
-<script>
-    $(document).ready(function () {
-    //ajax calls to get stats
-            $.ajax({url: "https://statsapi.hoard.exchange/api/getUniqueAccountsOverTime", success: function(result){
-                var trace1 = {x: [],y: [],type: 'scatter',mode:"lines+markers"};
-                trace1.x = result.time;
-                trace1.y = result.accounts;
-                var data = [trace1];
-                var layout = {
-                    title:'Unique accounts over time',
-                    autosize: false,
-                    width: 500,
-                    height: 400,
-                    margin: {
-                        l: 50,
-                        r: 50,
-                        b: 100,
-                        t: 100,
-                        pad: 4
-                    },
-                    paper_bgcolor: '#a8101d',
-                    plot_bgcolor: '#a8101d',
-                    font:{color:'#FFFFFF'}
-                };
-                Plotly.newPlot('myGraph1', data,layout,{staticPlot: true});
-            },
-            error: function(err){
-                console.log(err);
-            }
-            });
-
-            $.ajax({url: "https://statsapi.hoard.exchange/api/getEthOverTime", success: function(result){
-                var trace1 = {x: [],y: [],type: 'scatter',mode:"lines+markers"};
-                trace1.x = result.time;
-                trace1.y = result.accounts;
-                var data = [trace1];
-                var layout = {
-                    title:'Eth over time',
-                    autosize: false,
-                    width: 500,
-                    height: 400,
-                    margin: {
-                        l: 50,
-                        r: 50,
-                        b: 100,
-                        t: 100,
-                        pad: 4
-                    },
-                    paper_bgcolor: '#a8101d',
-                    plot_bgcolor: '#a8101d',
-                    font:{color:'#FFFFFF'}
-                };
-                Plotly.newPlot('myGraph2', data,layout,{staticPlot: true});
-            },
-            error: function(err){
-                console.log(err);
-            }
-            });
-            $.ajax({url: "https://statsapi.hoard.exchange/api/getNumberOfUniqueAccounts", success: function(result){
-                $("#div_unqiue_accs").html(result);
-            },
-            error: function(err){
-                console.log(err);
-            }
-            });
-    });
-    </script>
