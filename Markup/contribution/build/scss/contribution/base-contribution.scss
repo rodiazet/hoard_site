@@ -1,0 +1,88 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+
+.contribution {
+    overflow: hidden;
+    color: #ffffff;
+    @include gradientLinearHorizontal(#7b0211, #ae171f, 1, 1);
+    background-attachment: fixed;
+}
+.contributionBG {
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    @include position(absolute,0,auto,auto,auto,0);
+
+    .contributionImage {
+        min-width: 100%;
+        max-width: none;
+        height: 126px;
+        @include position(absolute,auto,auto,-26px,0,0);
+    }
+}
+.contributionHeader{
+    position:relative;
+    z-index:9;
+    height:50px;
+    .logo{
+        padding-top:12px;
+        padding-left:9px;
+        float:left;
+        img{
+            width:71px;
+        }
+    }
+}
+.mainContentContainer{
+    > .container{
+        width:100%;
+        max-width:1260px;
+    }
+}
+.mainContent {
+    padding-bottom:30px;
+}
+.scrollbar-inner > .scroll-element.scroll-y {
+    width: 5px;
+    right: 7px;
+    .scroll-bar{
+        background-color:#ffffff !important;
+        @include opacity(1,100);
+    }
+}
+@media (min-width: $tabletSize) {
+}
+
+@media (min-width: $labtopSize) {
+    h2, .h2Style{
+        margin-bottom:22px;
+    }
+    .contribution {
+        
+    }
+    .contributionBG {
+        .contributionImage {
+            height: auto;
+            left: 50%;
+            bottom: 0;
+            @include transform(translate(-50%, 0));
+        }
+    }
+    .contributionHeader {
+        height:82px;
+        .logo {
+            padding-top: 30px;
+            padding-left: 37px;
+
+            img {
+                width: 107px;
+            }
+        }
+    }
+    .mainContent {
+        margin-bottom:50px;
+    }
+}
+
+@media (min-width: $DesktopSize) {
+}

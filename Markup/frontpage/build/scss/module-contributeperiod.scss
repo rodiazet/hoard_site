@@ -1,0 +1,277 @@
+@import 'variable.scss';
+@import 'mixins.scss';
+
+.contributePeriod {
+    text-align: center;
+    color: #ffffff;
+    padding-top: 47px;
+    padding-bottom:53px;
+
+    .periodTitle {
+        margin-bottom: 30px;
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+
+    .textStart {
+        text-transform: uppercase;
+        font-size: 18px;
+        letter-spacing: 1px;
+        margin-bottom: 37px;
+    }
+
+    .cicleGraphContainer {
+        
+    }
+
+    .startDate {
+        text-transform: uppercase;
+        font-size: 16px;
+        letter-spacing: 1px;
+        margin-bottom: 38px;
+    }
+
+    .periodPointSection{
+        margin-bottom:35px;
+    }
+
+    .periodPointStart, .periodPointDots, .periodPointEnd {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .periodPointStart {
+        text-align: right;
+        margin-right: 5px;
+    }
+
+    .periodPointEnd {
+        text-align: left;
+        margin-left: 5px;
+    }
+
+    .periodPointText {
+        font-family: 'Montserrat-Bold';
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .periodPointDate {
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+
+    .periodPointDots {
+        font-size: 0;
+        white-space: nowrap;
+
+        > * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .pointDot {
+            width: 13px;
+            height: 13px;
+            background: #838282;
+            margin: 0 8px;
+            @include border-radius(50%);
+
+            &.active {
+                background: $generalRed;
+            }
+        }
+    }
+}
+.ClassyCountdown-wrapper {
+    font-size: 0;
+    text-align: center;
+
+    > div {
+        position: relative;
+        display: inline-block;
+        width: 140px !important;
+        height: 140px !important;
+        margin-bottom: 102px;
+
+        > div {
+            display: block !important;
+        }
+    }
+
+    .ClassyCountdown-value {
+        display: block;
+        margin: 0 !important;
+        @include position(absolute,34px,auto,auto,50%,1);
+        @include transform(translate(-50%,0));
+
+        > div {
+            font-family: 'Roboto-Thin';
+            font-size: 48px !important;
+            color: #ffffff;
+        }
+
+        > span {
+            display:block;
+            font-family: 'Montserrat-Bold';
+            font-size: 16px !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top:62px;
+        }
+    }
+
+    .ClassyCountdown-days {
+        margin-right: 5px;
+    }
+
+    .ClassyCountdown-hours {
+        margin-left: 5px;
+    }
+
+    .ClassyCountdown-minutes,
+    .ClassyCountdown-seconds {
+        visibility: hidden;
+        position: absolute;
+        z-index: -1000;
+    }
+}
+.countDownLabel {
+    font-size: 0;
+
+    span {
+        display: inline-block;
+        vertical-align: top;
+        font-family: 'Montserrat-Bold';
+        font-size: 16px;
+        width: 140px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 0 5px;
+
+        &.dayLabel {
+            margin-left: 0;
+        }
+
+        &.hourLabel {
+            margin-right: 0;
+        }
+
+        &.minuteLabel {
+            display: none;
+        }
+
+        &.secondLabel {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: $tabletSize) {
+}
+
+@media (min-width: $labtopSize) {
+    .contributePeriod {
+        padding-top: 104px;
+        padding-bottom:109px;
+
+        .textStart {
+            margin-bottom: 56px;
+        }
+
+        .cicleGraphContainer {
+            
+        }
+
+        .startDate {
+            font-size: 18px;
+            margin-bottom: 53px;
+        }
+
+        .periodPointSection {
+            margin-bottom: 39px;
+        }
+
+        .periodPointStart {
+            margin-right: 28px;
+        }
+
+        .periodPointEnd {
+            margin-left: 24px;
+        }
+
+        .periodPointText {
+            font-size: 20px;
+        }
+
+        .periodPointDate {
+            font-size: 18px;
+        }
+
+        .periodPointDots {
+            i {
+                font-size: 32px;
+                margin-right: 5px;
+            }
+
+            .pointDot {
+                margin: 0 6px;
+            }
+        }
+    }
+    .ClassyCountdown-wrapper {
+        > div {
+            margin: 0 28px 113px 28px;
+        }
+
+        .ClassyCountdown-days {
+            margin-right: 28px;
+        }
+
+        .ClassyCountdown-hours {
+            margin-left: 28px;
+        }
+
+        .ClassyCountdown-minutes,
+        .ClassyCountdown-seconds {
+            visibility: visible;
+            position: relative;
+            z-index: 0;
+        }
+    }
+    .countDownLabel {
+
+        span {
+            margin: 0 28px;
+
+            &.dayLabel {
+                margin-left: 28px;
+            }
+
+            &.hourLabel {
+                margin-right: 28px;
+            }
+
+            &.minuteLabel {
+                display: inline-block;
+            }
+
+            &.secondLabel {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+@media (min-width: $DesktopSize) {
+    .contributePeriod {
+        .periodPointDots {
+            .pointDot {
+                margin: 0 8px;
+            }
+        }
+    }
+}

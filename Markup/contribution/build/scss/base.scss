@@ -1,0 +1,142 @@
+@import 'variable.scss';
+@import 'mixins.scss';
+
+html {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+    text-rendering: optimizeLegibility;
+    min-width: 320px;
+    font-size: $generalFontSizeMobile;
+    font-family: 'Roboto-Light';
+    color: $pageFontColor;
+    background: $pageBG;
+}
+h1,h2,h3{
+    margin-top:0;
+    text-transform:uppercase;
+}
+h1, .h1Style {
+    font-size: 36px;
+}
+h2, .h2Style {
+    font-family: 'Montserrat-Light';
+    font-size: 24px;
+    line-height:36px;
+    letter-spacing:2px;
+}
+h3, .h3Style {
+    font-family: 'Montserrat-Bold';
+    font-size: 18px;
+    letter-spacing:1px;
+}
+p{
+    line-height:28px;
+}
+.sectionTitle{
+    font-size:18px;
+    margin-bottom:30px;
+}
+button {
+    outline: none;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+
+    &:focus {
+        @extend a;
+    }
+
+    &:active {
+        @extend a;
+    }
+
+    &:hover {
+        @extend a;
+    }
+}
+
+b {
+    font-weight: normal;
+}
+
+strong {
+    @extend b;
+}
+
+img {
+    max-width: 100%;
+}
+.module{
+    margin-top:38px;
+    margin-bottom:38px;
+}
+.whiteRow{
+    background:#ffffff;
+}
+a.generalButton,
+.generalButton {
+    display: inline-block;
+    font-family: 'Montserrat-Light';
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: transparent;
+    padding: 7px 20px 5px;
+    border: 2px solid #ffffff;
+    min-width: 266px;
+    @include border-radius(19px);
+    @include transition(all $transitionTime ease);
+
+    &:hover {
+        background: rgba(255,255,255,0.15);
+    }
+}
+/* row color */
+.redRow {
+    background-color: $generalRed;
+}
+
+.greyRow {
+    background-color: $greyBG;
+}
+
+.darkGreyRow {
+    background-color: $greyDarkBG;
+}
+
+.metalGreyRow {
+     background-color: $greyMetalBG;
+}
+
+.redCrimsonRow {
+    background-color: $redCrimsonBG;
+}
+
+@media (min-width: $tabletSize) {
+    
+}
+
+@media (min-width: $labtopSize) {
+    body {
+        font-size: 18px;
+    }
+
+    h2, .h2Style {
+        font-size: 40px;
+    }
+    h3, .h3Style{
+        font-size:20px;
+    }
+}
+
+@media (min-width: $DesktopSize) {
+}
