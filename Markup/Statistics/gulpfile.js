@@ -57,6 +57,9 @@ gulp.task('copy', function () {
     gulp.src('images/**/*')
         .pipe(copy())
         .pipe(gulp.dest('build/images/'));
+    gulp.src('web.config')
+        .pipe(copy())
+        .pipe(gulp.dest('build/'));
     return gulp.src('scss/**/*')
         .pipe(copy())
         .pipe(gulp.dest('build/scss/'));
