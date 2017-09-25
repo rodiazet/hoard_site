@@ -1,15 +1,32 @@
 var gulp = require( 'gulp' );
 var chug = require( 'gulp-chug' );
 var deploy = require('gulp-deploy-git');
+var runSequence = require('run-sequence');
  
-gulp.task( 'build_all', function () {
-    gulp.src( 'Markup/frontpage/gulpfile.js' )
-        .pipe( chug({tasks:['build']}) );
-    gulp.src( 'Markup/contribution/gulpfile.js' )
-        .pipe( chug({tasks:['build']}) );
-    gulp.src( 'Markup/statistics/gulpfile.js' )
+gulp.task( 'build_stats', function () {
+    return gulp.src( 'Markup/statistics/gulpfile.js' )
         .pipe( chug({tasks:['build']}) );
 });
+
+ 
+gulp.task( 'build_contribution', function () {
+        return gulp.src( 'Markup/contribution/gulpfile.js' )
+            .pipe( chug({tasks:['build']}) );
+});
+ 
+gulp.task( 'build_frontpage', function () {
+        return gulp.src( 'Markup/frontpage/gulpfile.js' )
+            .pipe( chug({tasks:['build']}) );
+});
+
+gulp.task('build_all', function(callback) {
+    runSequence('build_frontpage',
+                'build_contribution', 
+                'build_stats',
+                callback);
+});
+
+
 
 gulp.task( 'prepare_during', function () {
     gulp.src( 'Markup/contribution/gulpfile.js' )
