@@ -60,6 +60,9 @@ gulp.task('copy', function () {
     gulp.src('web.config')
         .pipe(copy())
         .pipe(gulp.dest('build/'));
+    gulp.src('js/plotly.min.js')
+        .pipe(copy())
+        .pipe(gulp.dest('build/js'));
     return gulp.src('scss/**/*')
         .pipe(copy())
         .pipe(gulp.dest('build/scss/'));
