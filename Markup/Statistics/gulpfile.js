@@ -24,8 +24,7 @@ gulp.task('concatcss', function() {
 });
 
 gulp.task('concatjs', function() {
-    return gulp.src(['js/plotly.min.js',
-    'js/jquery-2.2.3.min.js',
+    return gulp.src(['js/jquery-2.2.3.min.js',
     'js/modernizr-3.3.1.min.js',
     'js/bootstrap.min.js',
     'js/main.js',
