@@ -1552,11 +1552,7 @@ a.generalButton,
   background: #2c373e;
   color: #fff;
   padding: 55px 0 43px;
-  position: absolute;
-  top: auto;
-  right: auto;
-  bottom: 0;
-  left: 0;
+  position: relative;
   z-index: 9;
   text-align: center; }
 
