@@ -27,7 +27,7 @@ gulp.task('minifyjs', function() {
 gulp.task('concatcss', function() {
     return gulp.src(['css/bootstrap.min.css',
     'css/font-awesome.min.css',
-    'css/contribution.min.css'])
+    'css/contribution.css'])
     .pipe(concat('all.css'))
     .pipe(gulp.dest('build/css/'));
 });
