@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //ajax calls to get stats
 
-            $.ajax({url: "http://localhost:5000/api/getStatsForGraphs", success: function(result){
+            $.ajax({url: "https://statsapi.hoard.exchange/api/getStatsForGraphs", success: function(result){
                 var trace1 = {x: [],y: [],type: 'scatter',mode:"lines+markers"};
                 trace1.x = result.time;
                 trace1.y = result.accounts;
