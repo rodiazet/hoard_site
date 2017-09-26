@@ -61,8 +61,8 @@
                                             </div>
                                             <button type="button" id="btnCheckBalance" class="generalButton">Check</button>
                                             <div class="alertContainer">
-                                                <div id="errorSubscribe"  class="alert alert-danger"></div>
-                                                <div id="successSubscribe" class="alert alert-success"></div>
+                                                <div id="div_error"  class="alert alert-danger"></div>
+                                                <div id="div_success" class="alert alert-success"></div>
                                             </div>
                                         <!-- </form> -->
                                     </div>
@@ -82,16 +82,3 @@
     <!-- endbuild -->
 </body>
 </html>
-<script>
-$("#btnCheckBalance").click(function(){
-    var address = $("#txtAddress").val();
-    $.ajax({url: "https://statsapi.hoard.exchange/api/getcurPubHRD4ETHValForAddr/?address="+address, success: function(result){
-               console.log(result);
-               $("#successSubscribe").html(result);
-            },
-            error: function(err){
-                console.log(err);
-            }
-            });
-});
-</script>
