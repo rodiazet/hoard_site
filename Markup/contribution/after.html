@@ -8,7 +8,7 @@
     <!-- build:css -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/contribution.min.css" />
+    <link rel="stylesheet" href="css/contribution.css" />
     <!-- endbuild -->
 </head>
 <body class="contribution">
@@ -55,12 +55,16 @@
                                 <div class="col-xs-12">
                                     <div class="contributeStatus">
                                         <h3>Check your contribution status</h3>
-                                        <form action=".">
+                                        <!-- <form action="."> -->
                                             <div class="contributeStatusInputWrapper">
-                                                <input type="text" class="contributeStatusInput" placeholder="Paste your account address here"/>
+                                                <input type="text" id="txtAddress" class="contributeStatusInput" placeholder="Paste your account address here"/>
                                             </div>
-                                            <button type="submit" class="generalButton">Check</button>
-                                        </form>
+                                            <button type="button" id="btnCheckBalance" class="generalButton">Check</button>
+                                            <div class="alertContainer">
+                                                <div id="errorSubscribe"  class="alert alert-danger"></div>
+                                                <div id="successSubscribe" class="alert alert-success"></div>
+                                            </div>
+                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>
@@ -78,3 +82,16 @@
     <!-- endbuild -->
 </body>
 </html>
+<script>
+$("#btnCheckBalance").click(function(){
+    var address = $("#txtAddress").val();
+    $.ajax({url: "https://statsapi.hoard.exchange/api/getcurPubHRD4ETHValForAddr/?address="+address, success: function(result){
+               console.log(result);
+               $("#successSubscribe").html(result);
+            },
+            error: function(err){
+                console.log(err);
+            }
+            });
+});
+</script>
