@@ -37,13 +37,13 @@ gulp.task('concatjs', function() {
 gulp.task('minifycss', function() {
      return gulp.src('build/css/all.css')
       .pipe(cleanCSS({compatibility: 'ie8'}))
-      .pipe(gulp.dest('build/css/mincss/all.css'));
+      .pipe(gulp.dest('build/mincss/'));
   });
 
 gulp.task('replacehtml', function() {
     return gulp.src('index.html')
       .pipe(htmlreplace({
-          'css':'css/all.css',
+          'css':'mincss/all.css',
           'js': 'js/minjs/all.js'
       }))
       .pipe(gulp.dest('build/index_tags_replaced'));
