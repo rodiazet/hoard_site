@@ -187,11 +187,11 @@ $(function () {
 });
 
 $(window).on('load', function () {
-    footerAlwaysBottom();
+    
 });
 
 $(window).on('resize', function () {
-    footerAlwaysBottom();
+    
 });
 
 
@@ -489,11 +489,11 @@ function Team() {
 
 
         /* add data to big circle */
-        var str = element.siblings('.teamItemDetail').children('p').text();
+        var content = element.siblings('.teamItemDetail').children('.initialCircleContent').children().clone();
         var circleTheme = element.attr('data-themeCircle');
         $('.teamDetailPerson').addClass('open');
         $('.detailPerson').addClass('open');
-        $('.detailPersonText').html(str);
+        $('.detailPersonText').html(content);
         if (circleTheme == 'red'){
             $('.detailPerson').removeClass('whiteCircle');
         } else {
