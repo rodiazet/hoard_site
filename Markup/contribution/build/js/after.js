@@ -150,3 +150,30 @@ $(window).on('resize', function () {
     footerAlwaysBottom();
 });
 
+$(document).ready( function () {
+    $( "#div_success" ).hide();
+    $( "#div_error" ).hide();
+});
+$("#btnCheckBalance").click(function(){
+    var address = $("#txtAddress").val();
+    $( "#div_success" ).hide();
+    $( "#div_error" ).hide();
+    $.ajax({url: "https://statsapi.hoard.exchange/api/getcurPubHRD4ETHValForAddr/?address="+address, success: function(result){
+               console.log(result);
+               if(result>0)
+               {
+                $("#div_success").html(result+" HRD");
+                $("#div_success").slideDown();
+               }
+               else{
+                $( "#div_error" ).html("Error:"+result);
+                $( "#div_error" ).slideDown(); 
+               }
+            },
+            error: function(err){
+                $( "#div_error" ).html("Error");
+                $( "#div_error" ).slideDown(); 
+            }
+            });
+});
+

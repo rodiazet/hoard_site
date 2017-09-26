@@ -151,12 +151,13 @@ $(window).on('resize', function () {
 
 $(document).ready(function () {
     //ajax calls to get stats
-            $.ajax({url: "https://statsapi.hoard.exchange/api/getUniqueAccountsOverTime", success: function(result){
+
+            $.ajax({url: "https://statsapi.hoard.exchange/api/getStatsForGraphs", success: function(result){
                 var trace1 = {x: [],y: [],type: 'scatter',mode:"lines+markers"};
                 trace1.x = result.time;
                 trace1.y = result.accounts;
-                var data = [trace1];
-                var layout = {
+                var data1 = [trace1];
+                var layout1 = {
                     title:'Unique accounts over time',
                     autosize: false,
                     width: 500,
@@ -172,19 +173,15 @@ $(document).ready(function () {
                     plot_bgcolor: '#a8101d',
                     font:{color:'#FFFFFF'}
                 };
-                Plotly.newPlot('myGraph1', data,layout,{staticPlot: true});
-            },
-            error: function(err){
-                console.log(err);
-            }
-            });
+                Plotly.newPlot('myGraph1', data1,layout1,{staticPlot: true});
 
-            $.ajax({url: "https://statsapi.hoard.exchange/api/getEthOverTime", success: function(result){
-                var trace1 = {x: [],y: [],type: 'scatter',mode:"lines+markers"};
-                trace1.x = result.time;
-                trace1.y = result.accounts;
-                var data = [trace1];
-                var layout = {
+
+
+                var trace2 = {x: [],y: [],type: 'scatter',mode:"lines+markers"};
+                trace2.x = result.time;
+                trace2.y = result.accounts;
+                var data2 = [trace2];
+                var layout2 = {
                     title:'Eth over time',
                     autosize: false,
                     width: 500,
@@ -200,7 +197,7 @@ $(document).ready(function () {
                     plot_bgcolor: '#a8101d',
                     font:{color:'#FFFFFF'}
                 };
-                Plotly.newPlot('myGraph2', data,layout,{staticPlot: true});
+                Plotly.newPlot('myGraph2', data2,layout2,{staticPlot: true});
             },
             error: function(err){
                 console.log(err);
