@@ -1174,3 +1174,17 @@ a.generalButton,
   .duringFirst .eventCountDownBlock, .contributeTerm .eventCountDownBlock {
     display: inline-block; } }
 
+    .alertContainer {
+      text-align: center;
+      width: 100%;
+      max-width: 410px;
+      margin: 20px auto 0; }
+      .alertContainer .alert-danger {
+        background: #af1920;
+        color: #ffffff;
+        border-color: #af1920; }
+      .alertContainer .alert-success {
+        background: #029C3E;
+        color: #ffffff;
+        border-color: #029C3E; }
+
