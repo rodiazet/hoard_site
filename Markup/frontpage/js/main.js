@@ -119,10 +119,10 @@ $(function () {
 });
 
 $(window).on('load', function () {
-    footerAlwaysBottom();
+    
 });
 
 $(window).on('resize', function () {
-    footerAlwaysBottom();
+    
 });
 
