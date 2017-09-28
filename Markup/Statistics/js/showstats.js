@@ -28,7 +28,7 @@ $(document).ready(function () {
 
                 var trace2 = {x: [],y: [],type: 'scatter',mode:"lines+markers"};
                 trace2.x = result.time;
-                trace2.y = result.accounts;
+                trace2.y = result.eth;
                 var data2 = [trace2];
                 var layout2 = {
                     title:'Eth over time',
