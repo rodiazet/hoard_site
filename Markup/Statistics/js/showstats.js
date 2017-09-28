@@ -2,7 +2,18 @@ $(document).ready(function () {
     //ajax calls to get stats
 
             $.ajax({url: "https://statsapi.hoard.exchange/api/getStatsForGraphs", success: function(result){
-                var trace1 = {x: [],y: [],type: 'scatter',mode:"lines+markers"};
+                var trace1 = {x: [],y: [],
+                    type: 'scatter',
+                    mode:"lines+markers",
+                    marker: {
+                        color: 'rgb(211, 211, 211)',
+                        size: 8
+                      },
+                      line: {
+                        color: 'rgb(211, 211, 211)',
+                        width: 1
+                      }
+                };
                 trace1.x = result.time;
                 trace1.y = result.accounts;
                 var data1 = [trace1];
@@ -26,7 +37,18 @@ $(document).ready(function () {
 
 
 
-                var trace2 = {x: [],y: [],type: 'scatter',mode:"lines+markers"};
+                var trace2 = {x: [],y: [],
+                    type: 'scatter',
+                    mode:"lines+markers",
+                    marker: {
+                        color: 'rgb(211, 211, 211)',
+                        size: 8
+                      },
+                      line: {
+                        color: 'rgb(211, 211, 211)',
+                        width: 1
+                      }
+                };
                 trace2.x = result.time;
                 trace2.y = result.eth;
                 var data2 = [trace2];
