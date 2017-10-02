@@ -373,7 +373,8 @@ a.generalButton,
 /*alert Message*/
 .header {
   width: 100%;
-  position: absolute;
+  background: #af1920;
+  position: fixed;
   top: 0;
   right: auto;
   bottom: auto;
@@ -395,19 +396,15 @@ a.generalButton,
       width: 90px; }
 
 .toggleMenu {
-  width: 61px;
-  height: 76px;
   border: none;
-  background: url("../images/menu-toggle-bg.png") no-repeat bottom center;
   cursor: pointer;
-  padding-top: 17px;
-  padding-left: 13px;
+  padding: 5px;
   transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   position: fixed;
-  top: 36px;
+  top: 0;
   right: 15px;
   bottom: auto;
   left: auto;
@@ -418,16 +415,11 @@ a.generalButton,
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .toggleMenu.topZero {
-    top: 0;
-    -webkit-box-shadow: -2px -8px 6px 0px rgba(0, 0, 0, 0.18);
-    -moz-box-shadow: -2px -8px 6px 0px rgba(0, 0, 0, 0.18);
-    box-shadow: -2px -8px 6px 0px rgba(0, 0, 0, 0.18); }
   .toggleMenu .menuBar {
     width: 29px;
     height: 2px;
     margin-bottom: 6px;
-    background: #af1920;
+    background: #ffffff;
     transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
@@ -587,8 +579,12 @@ a.generalButton,
     margin: 0 6px; }
 
 /* not touch device */
-.no-touchevents .header .headerSubmenu a:hover {
-  text-decoration: underline; }
+.no-touchevents .header .headerSubmenu a {
+  font-size: 18px;
+  line-height: 24px;
+  text-transform: uppercase; }
+  .no-touchevents .header .headerSubmenu a:hover {
+    text-decoration: underline; }
 
 .no-touchevents .menuIcons a {
   position: relative;
@@ -635,11 +631,21 @@ a.generalButton,
 /* page sections background color */
 /*alert Message*/
 .topSection {
-  height: 370px;
   position: relative; }
   .topSection .topSectionContentContainer {
-    position: relative;
-    z-index: 3; }
+    width: 100%;
+    max-width: 1470px;
+    position: absolute;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); }
   .topSection .bgImage {
     min-height: 100%;
     min-width: 100%;
@@ -677,16 +683,93 @@ a.generalButton,
     text-align: center;
     color: #ffffff;
     font-family: 'Roboto-Light';
-    padding-top: 125px; }
+    width: 100%; }
     .topSection .topSectionContent p {
       margin-bottom: 0; }
     .topSection .topSectionContent .welcomeTo {
       font-size: 20px;
       margin-bottom: 5px;
-      line-height: normal; }
+      line-height: normal;
+      color: #242424; }
     .topSection .topSectionContent .welcomeText {
       font-size: 36px;
-      line-height: 44px; }
+      line-height: 44px;
+      color: #af1920; }
+  .topSection .videoTopBg {
+    position: relative;
+    overflow: hidden;
+    text-align: center; }
+    .topSection .videoTopBg img {
+      display: inline-block;
+      position: relative;
+      left: 100%;
+      margin-left: -200%;
+      min-width: 753px;
+      width: 150%; }
+  .topSection .videoToggle {
+    position: relative;
+    display: inline-block;
+    color: #dfe2e3;
+    width: 140px;
+    height: 140px;
+    font-size: 83px;
+    background: rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%; }
+    .topSection .videoToggle i {
+      position: absolute;
+      top: 50%;
+      right: auto;
+      bottom: auto;
+      left: 55%;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%); }
+    .topSection .videoToggle:hover {
+      color: #ffffff; }
+
+/* Lity lightbox */
+.lity-wrap {
+  overflow-y: auto; }
+
+.lity-iframe .lity-container, .lity-youtube .lity-container, .lity-vimeo .lity-container, .lity-facebookvideo .lity-container, .lity-googlemaps .lity-container {
+  width: 100%;
+  height: 100%;
+  max-width: none; }
+
+.lity-content {
+  height: 100%; }
+
+.lity-iframe-container {
+  width: 100%;
+  height: 100%;
+  padding: 0; }
+
+.lity-iframe-container iframe {
+  position: static; }
+
+.lity-close, .lity-close:active {
+  right: 20px;
+  top: 20px;
+  height: 50px !important;
+  font-size: 50px !important;
+  line-height: 50px !important; }
+
+@media (min-width: 768px) {
+  .topSection .videoTopBg {
+    position: relative;
+    overflow: hidden;
+    text-align: center; }
+    .topSection .videoTopBg img {
+      left: auto;
+      margin-left: 0;
+      max-width: none;
+      min-width: 1px;
+      width: 100%; } }
 
 @media (min-width: 992px) {
   .topSection .bgImage .mainTopBG {
@@ -714,13 +797,15 @@ a.generalButton,
     width: 262px;
     bottom: -38px; }
   .topSection .topSectionContent {
-    padding-top: 145px; }
+    width: 590px; }
     .topSection .topSectionContent .welcomeTo {
-      font-size: 30px;
+      font-size: 55px;
       margin-bottom: 5px; }
     .topSection .topSectionContent .welcomeText {
       font-size: 70px;
-      line-height: 80px; } }
+      line-height: 80px; }
+  .topSection .videoToggle {
+    margin-top: 52px; } }
 
 /* font size */
 /* timimg */
@@ -1273,8 +1358,8 @@ a.generalButton,
       z-index: 99; }
   .detailPerson {
     font-family: 'Roboto-Light';
-    width: 508px;
-    min-height: 508px;
+    width: 650px;
+    min-height: 650px;
     max-height: none;
     font-size: 17px;
     line-height: 30px;

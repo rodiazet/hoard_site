@@ -3,7 +3,8 @@
 
 .header {
     width: 100%;
-    @include position(absolute,0,auto,auto,0,7);
+    background: #af1920;
+    @include position(fixed,0,auto,auto,0,7);
 
     .headerTop {
         border-bottom: 1px solid #840517;
@@ -31,27 +32,18 @@
 }
 
 .toggleMenu {
-    width: 61px;
-    height: 76px;
     border: none;
-    background: url('../images/menu-toggle-bg.png') no-repeat bottom center;
     cursor: pointer;
-    padding-top: 17px;
-    padding-left: 13px;
+    padding:5px;
     @include transition(all $transitionTime ease);
-    @include position(fixed,36px,15px,auto,auto,9);
+    @include position(fixed,0,15px,auto,auto,9);
     @include user-select(none);
-
-    &.topZero {
-        top: 0;
-        @include boxShadow(-2px -8px 6px 0px rgba(#000000,0.18));
-    }
 
     .menuBar {
         width: 29px;
         height: 2px;
         margin-bottom: 6px;
-        background: $generalRed;
+        background: #ffffff;
         @include transition(all $transitionTime ease);
 
         &:nth-child(3) {
@@ -229,6 +221,9 @@
     .header {
         .headerSubmenu {
             a {
+                font-size:18px;
+                line-height:24px;
+                text-transform:uppercase;
                 &:hover {
                     text-decoration: underline;
                 }
