@@ -743,13 +743,14 @@ a.generalButton,
       margin-left: -200%;
       min-width: 753px;
       width: 150%; }
-  .topSection .videoToggle {
+  .topSection .videoToggleButton {
     display: inline-block;
     color: #dfe2e3;
     width: 100px;
     height: 100px;
     font-size: 54px;
     background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -764,7 +765,7 @@ a.generalButton,
     -webkit-transform: translateX(-50%);
     -o-transform: translateX(-50%);
     -ms-transform: translateX(-50%); }
-    .topSection .videoToggle i {
+    .topSection .videoToggleButton i {
       position: absolute;
       top: 50%;
       right: auto;
@@ -776,7 +777,7 @@ a.generalButton,
       -webkit-transform: translate(-50%, -50%);
       -o-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%); }
-    .topSection .videoToggle:hover {
+    .topSection .videoToggleButton:hover {
       color: #ffffff; }
 
 /* Lity lightbox */
@@ -860,7 +861,7 @@ a.generalButton,
     .topSection .topSectionContent .welcomeText {
       font-size: 70px;
       line-height: 80px; }
-  .topSection .videoToggle {
+  .topSection .videoToggleButton {
     position: relative;
     top: auto;
     left: auto;
