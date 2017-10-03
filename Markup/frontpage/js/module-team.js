@@ -85,11 +85,11 @@
         $('.teamDetailPerson').addClass('open');
         $('.detailPerson').addClass('open');
         $('.detailPersonText').html(content);
-        if (circleTheme == 'red'){
+        /*if (circleTheme == 'red'){
             $('.detailPerson').removeClass('whiteCircle');
         } else {
             $('.detailPerson').addClass('whiteCircle');
-        }
+        }*/
     }
 
     this.closeDetail = function (element) {
