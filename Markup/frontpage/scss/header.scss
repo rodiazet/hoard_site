@@ -3,7 +3,9 @@
 
 .header {
     width: 100%;
-    @include position(absolute,0,auto,auto,0,7);
+    padding:5px 0;
+    background: #af1920;
+    @include position(fixed,0,auto,auto,0,7);
 
     .headerTop {
         border-bottom: 1px solid #840517;
@@ -22,7 +24,6 @@
     }
 
     .logo {
-        margin-top: 15px;
 
         img {
             width: 90px;
@@ -31,31 +32,28 @@
 }
 
 .toggleMenu {
-    width: 61px;
-    height: 76px;
     border: none;
-    background: url('../images/menu-toggle-bg.png') no-repeat bottom center;
     cursor: pointer;
-    padding-top: 17px;
-    padding-left: 13px;
+    padding: 5px;
     @include transition(all $transitionTime ease);
-    @include position(fixed,36px,15px,auto,auto,9);
+    @include position(fixed,5px,10px,auto,auto,9);
     @include user-select(none);
 
-    &.topZero {
-        top: 0;
-        @include boxShadow(-2px -8px 6px 0px rgba(#000000,0.18));
+    &:hover {
+        .menuBar {
+            background: #ef9588;
+        }
     }
 
     .menuBar {
         width: 29px;
         height: 2px;
         margin-bottom: 6px;
-        background: $generalRed;
-        @include transition(all $transitionTime ease);
+        background: #ffffff;
+        @include transition(transform $transitionTime ease);
 
         &:nth-child(3) {
-            @include transition(all 0.1s ease);
+            @include transition(opacity 0.1s ease);
         }
     }
 
@@ -82,11 +80,11 @@
     height: 100vh;
     width: 268px;
     overflow-y: auto;
-    background: rgba(#2c373e,0.95);
+    background: rgba(#2c373e,1);
     color: #ffffff;
     -webkit-overflow-scrolling: touch;
     @include transition(all $transitionTime ease);
-    @include position(fixed,36px,-268px,auto,auto,8);
+    @include position(fixed,40px,-268px,auto,auto,8);
 
     &.open {
         right: 0;
@@ -102,7 +100,7 @@
 
     .mainMenu {
         list-style: none;
-        padding: 0 0 29px 0;
+        padding: 40px 0 29px 0;
         margin: 0;
         border-bottom: 1px solid #5c5d62;
 
@@ -120,6 +118,7 @@
                 font-size: 18px;
                 color: #ffffff;
                 padding: 0 15px 0 53px;
+                text-transform:uppercase;
 
                 &:before {
                     font-family: 'FontAwesome';
@@ -229,6 +228,9 @@
     .header {
         .headerSubmenu {
             a {
+                font-size:18px;
+                line-height:24px;
+                text-transform:uppercase;
                 &:hover {
                     text-decoration: underline;
                 }
@@ -255,9 +257,10 @@
 
 @media (min-width: $labtopSize) {
     .header {
+        padding: 10px 0 7px;
+
         .logo {
             margin-left: 21px;
-            margin-top: 24px;
 
             img {
                 width: 108px;
@@ -274,26 +277,29 @@
             }
         }
 
-        .headerSubmenu{
-            margin-right:110px;
-            margin-top:22px;
+        .headerSubmenu {
+            margin-right: 85px;
+
+            a {
+                margin-left: 20px;
+            }
         }
     }
     .toggleMenu {
-        top: 0;
+        top: 13px;
         right: 32px;
-        height: 91px;
-        padding-top:33px;
     }
     .mainNavigation {
         top: 0;
         width:312px;
         right:-312px;
         .mainMenu{
-            margin-top:96px;
+            margin-top:81px;
+            padding-top:0;
         }
     }
 }
 
 @media (min-width: $DesktopSize) {
+    
 }

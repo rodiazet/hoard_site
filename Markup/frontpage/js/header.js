@@ -115,9 +115,10 @@
         this.scrollClick.on('click', function (e) {
             e.preventDefault();
             var sectionID = $(this).attr('data-scrollto');
+            var headerHeight = context.header.outerHeight(true);
 
             $('html, body').animate({
-                scrollTop: $('#' + sectionID).offset().top
+                scrollTop: $('#' + sectionID).offset().top - headerHeight
             }, context.animateTime);
         });
     }
@@ -127,7 +128,7 @@
 
 }
 
-var header
+var header;
 
 $(document).ready(function () {
     header = new Header();
