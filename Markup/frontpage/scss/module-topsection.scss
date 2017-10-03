@@ -73,13 +73,14 @@
         }
     }
 
-    .videoToggle {
+    .videoToggleButton {
         display: inline-block;
         color: #dfe2e3;
         width: 100px;
         height: 100px;
         font-size: 54px;
         background: rgba(#000000,0.4);
+        cursor:pointer;
         @include border-radius(50%);
         @include position(absolute,22%,auto,auto,50%,1);
         @include transform(translateX(-50%));
@@ -170,8 +171,8 @@
 
         .topSectionContentContainer {
             top: 50%;
-            bottom:auto;
-            background:transparent;
+            bottom: auto;
+            background: transparent;
             @include transform(translate(-50%, -50%));
         }
 
@@ -189,7 +190,7 @@
             }
         }
 
-        .videoToggle {
+        .videoToggleButton {
             position: relative;
             top: auto;
             left: auto;
