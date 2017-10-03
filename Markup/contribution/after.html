@@ -62,7 +62,7 @@
                                             <div class="contributeStatusInputWrapper">
                                                 <input type="text" id="txtAddress" class="contributeStatusInput" placeholder="Paste your account address here"/>
                                             </div>
-                                            <button type="button" id="btnCheckBalance" class="generalButton">Check</button>
+                                            <button type="button" id="btnCheckBalance" class="generalButton toggleOverlay" data-toggleOverlayID="overlay1">Check</button>
                                             <div class="alertContainer">
                                                 <div id="div_error"  class="alert alert-danger"></div>
                                                 <div id="div_success" class="alert alert-success"></div>
@@ -76,12 +76,27 @@
                 </div>
             </div>
         </div>
+
+        <div class="mainOverlay" id="overlay1">
+            <div class="overlayDialog">
+                <div class="overlayDialogContent">
+                    <!-- Can be any content inside here, this overlay structure can be reused -->
+                    <h3 class="overlayTitle">Lorem ipsum dolor sit amet</h3>
+                    <div class="textContent">
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    </div>
+                    <button class="closeOverlay generalButton">Ok</button>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!-- build:js -->
     <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src="js/modernizr-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/overlay.js"></script>
     <!-- endbuild -->
 </body>
 </html>

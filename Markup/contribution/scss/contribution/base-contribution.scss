@@ -1,6 +1,9 @@
 ﻿@import '../variable.scss';
 @import '../mixins.scss';
 
+.lockScroll{
+    overflow:hidden;
+}
 .contribution {
     overflow: hidden;
     color: #ffffff;
