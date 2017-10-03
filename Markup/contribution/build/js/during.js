@@ -276,6 +276,7 @@ function During() {
     this.html = $('html');
     this.body = $('body');
     this.continueButton = $('.continueButton');
+    this.questionButton = $('.question');
 
     this.contributeTerm = $('.contributeTerm');
     this.howContribute = $('.howContribute');
@@ -285,6 +286,7 @@ function During() {
     this.init = function () {
         this.continueAction();
         this.validateTerm();
+        this.toggleFAQ();
     }
 
     this.continueAction = function () {
@@ -302,6 +304,18 @@ function During() {
                 context.continueButton.attr('disabled', "disabled");
             }
 
+        });
+    }
+
+    this.toggleFAQ = function () {
+        this.questionButton.on('click', function () {
+            if ($(this).hasClass('active')) {
+                $(this).siblings('.anwser').slideUp(200);
+                $(this).removeClass('active');
+            } else {
+                $(this).siblings('.anwser').slideDown(200);
+                $(this).addClass('active');
+            }
         });
     }
 
