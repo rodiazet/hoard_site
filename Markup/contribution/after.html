@@ -1,6 +1,15 @@
 ﻿<!DOCTYPE html>
 <html class="htmlContribution">
 <head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107503996-2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)};
+    gtag('js', new Date());
+
+    gtag('config', 'UA-107503996-2');
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Hoard Exchange. True Ownership for virtual goods.">
@@ -62,11 +71,7 @@
                                             <div class="contributeStatusInputWrapper">
                                                 <input type="text" id="txtAddress" class="contributeStatusInput" placeholder="Paste your account address here"/>
                                             </div>
-                                            <button type="button" id="btnCheckBalance" class="generalButton">Check</button>
-                                            <div class="alertContainer">
-                                                <div id="div_error"  class="alert alert-danger"></div>
-                                                <div id="div_success" class="alert alert-success"></div>
-                                            </div>
+                                            <button type="button" id="btnCheckBalance" class="generalButton toggleOverlay" data-toggleOverlayID="overlay1">Check</button>
                                         <!-- </form> -->
                                     </div>
                                 </div>
@@ -76,12 +81,27 @@
                 </div>
             </div>
         </div>
+
+        <div class="mainOverlay" id="overlay1">
+            <div class="overlayDialog">
+                <div class="overlayDialogContent">
+                    <!-- Can be any content inside here, this overlay structure can be reused -->
+                    <h3 class="overlayTitle">Hoard Token balance</h3>
+                    <div id="div_balance" class="textContent">
+                        <p>Checking...</p>
+                    </div>
+                    <button class="closeOverlay generalButton">Ok</button>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!-- build:js -->
     <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src="js/modernizr-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/overlay.js"></script>
     <!-- endbuild -->
 </body>
 </html>
