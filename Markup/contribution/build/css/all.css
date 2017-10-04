@@ -739,7 +739,6 @@ a.generalButton,
     -moz-border-radius: 30px;
     border-radius: 30px; }
   .mainOverlay .textContent {
-    text-align: left;
     margin-bottom: 30px; }
     .mainOverlay .textContent *:last-child {
       margin-bottom: 0; }
