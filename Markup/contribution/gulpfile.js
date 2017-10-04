@@ -32,6 +32,16 @@ gulp.task('concatcss', function() {
     .pipe(gulp.dest('build/css/'));
 });
 
+gulp.task('concatjs_instruction', function() {
+    return gulp.src(['js/jquery-2.2.3.min.js',
+    'js/modernizr-3.3.1.min.js',
+    'js/bootstrap.min.js',
+    'js/main.js',
+    'js/during-contribution.js'])
+    .pipe(concat('instruction.js'))
+    .pipe(gulp.dest('build/js/'));
+});
+
 gulp.task('concatjs_before', function() {
     return gulp.src(['js/jquery-2.2.3.min.js',
     'js/modernizr-3.3.1.min.js',
@@ -65,7 +75,8 @@ gulp.task('concatjs_after', function() {
     'js/modernizr-3.3.1.min.js',
     'js/bootstrap.min.js',
     'js/jquery.classycountdown.min.js',
-    'js/main.js'])
+    'js/main.js',
+    'js/overlay.js'])
     .pipe(concat('after.js'))
     .pipe(gulp.dest('build/js/'));
 });
@@ -88,6 +99,13 @@ gulp.task('replacehtml', function() {
     .pipe(htmlreplace({
         'css':'mincss/all.css',
         'js': 'js/minjs/after.js'
+    }))
+    .pipe(gulp.dest('build/tags_replaced'));
+
+    gulp.src('instruction.html')
+    .pipe(htmlreplace({
+        'css':'mincss/all.css',
+        'js': 'js/minjs/instruction.js'
     }))
     .pipe(gulp.dest('build/tags_replaced'));
 
@@ -129,6 +147,10 @@ gulp.task('minifyhtml', function() {
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('build/hidden_resources'));
 
+    gulp.src('build/tags_replaced/instruction.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('build/'));
+
     return gulp.src('build/tags_replaced/before.html')
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('build/hidden_resources'));
@@ -162,6 +184,7 @@ gulp.task('build', function(callback) {
                 'concatjs_before',
                 'concatjs_during',
                 'concatjs_after',
+                'concatjs_instruction',
                 'minifyjs',
                 'replacehtml',
                 'concatcss',
