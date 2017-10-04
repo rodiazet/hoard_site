@@ -63,10 +63,6 @@
                                                 <input type="text" id="txtAddress" class="contributeStatusInput" placeholder="Paste your account address here"/>
                                             </div>
                                             <button type="button" id="btnCheckBalance" class="generalButton toggleOverlay" data-toggleOverlayID="overlay1">Check</button>
-                                            <div class="alertContainer">
-                                                <div id="div_error"  class="alert alert-danger"></div>
-                                                <div id="div_success" class="alert alert-success"></div>
-                                            </div>
                                         <!-- </form> -->
                                     </div>
                                 </div>
@@ -81,9 +77,9 @@
             <div class="overlayDialog">
                 <div class="overlayDialogContent">
                     <!-- Can be any content inside here, this overlay structure can be reused -->
-                    <h3 class="overlayTitle">Lorem ipsum dolor sit amet</h3>
-                    <div class="textContent">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <h3 class="overlayTitle">Hoard Token balance</h3>
+                    <div id="div_balance" class="textContent">
+                        <p>Checking...</p>
                     </div>
                     <button class="closeOverlay generalButton">Ok</button>
                 </div>
