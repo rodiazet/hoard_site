@@ -242,14 +242,107 @@
     }
 }*/
 
-.backNav{
-    display:none;
-    ul{
-        li{
-            font-size:18px;
-            i{
-                font-size:15px;
-                margin-right:10px;
+.howContribute {
+    @include position(fixed,-100000%,-100000%,auto,auto,-100);
+    @include opacity(0,0);
+    @include transition(opacity 0.3s ease);
+
+    &.show {
+        position: static;
+        @include opacity(1,100);
+    }
+}
+
+.howContribute {
+    text-align: center;
+    padding-top: 27px;
+    padding-bottom: 27px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        a {
+            color: #ffffff;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .contributeContract {
+        display: inline-block;
+        background: rgba(#7f0212,0.5);
+        padding: 10px;
+        margin-bottom: 15px;
+        max-width: 680px;
+        @include border-radius(10px);
+
+        p {
+            letter-spacing: 1px;
+            word-break: break-all;
+        }
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .contributeContractTitle {
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+
+        .contributeContractDetail {
+            text-transform: uppercase;
+        }
+    }
+}
+
+.contributeNavigation {
+    float: right;
+    width: 70%;
+    margin-right: 15px;
+    margin-top: 10px;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        font-size: 0;
+        text-align: right;
+
+        li {
+            display: inline-block;
+            margin-left: 15px;
+
+            a {
+                display: block;
+                color: #ffffff;
+            }
+
+            i {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 26px;
+            }
+        }
+    }
+}
+
+.backNav {
+    display: none;
+
+    ul {
+        li {
+            font-size: 18px;
+
+            i {
+                font-size: 15px;
+                margin-right: 10px;
             }
         }
     }
@@ -258,8 +351,9 @@
 .continueButton[disabled=disabled] {
     color: #aaaaaa;
     border-color: #aaaaaa;
-    &:hover{
-        background-color:transparent;
+
+    &:hover {
+        background-color: transparent;
     }
 }
 
@@ -426,6 +520,36 @@
 
         .eventCountDownBlock {
             display: inline-block;
+        }
+    }
+    .howContribute {
+        padding-top: 43px;
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 27px;
+        }
+
+        p {
+            margin-bottom: 22px;
+        }
+
+        .contributeContract {
+            width: 680px;
+            padding: 28px 20px 20px;
+            margin-bottom: 19px;
+
+            .contributeContractTitle {
+                font-size: 30px;
+            }
+
+            .contributeContractDetail {
+                font-size: 24px;
+            }
+        }
+
+        > *:last-child {
+            margin-bottom: 0;
         }
     }
 }

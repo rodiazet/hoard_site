@@ -171,29 +171,20 @@ $(window).on('resize', function () {
     footerAlwaysBottom();
 });
 
-$(document).ready( function () {
-    $( "#div_success" ).hide();
-    $( "#div_error" ).hide();
-});
 $("#btnCheckBalance").click(function(){
     var address = $("#txtAddress").val();
-    $( "#div_success" ).hide();
-    $( "#div_error" ).hide();
     $.ajax({url: "https://statsapi.hoard.exchange/api/getcurPubHRD4ETHValForAddr/?address="+address, success: function(result){
                console.log(result);
                if(result>0)
                {
-                $("#div_success").html(result+" HRD");
-                $("#div_success").slideDown();
+                $("#div_balance").html("<p>"+result+" HRD</p>");
                }
                else{
-                $( "#div_error" ).html("Error:"+result);
-                $( "#div_error" ).slideDown(); 
+                $( "#div_balance" ).html("<p>Something went wrong, please make sure you have the right address.</p>"); 
                }
             },
             error: function(err){
-                $( "#div_error" ).html("Error");
-                $( "#div_error" ).slideDown(); 
+                $( "#div_error" ).html("<p>Error</p>");
             }
             });
 });

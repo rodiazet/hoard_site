@@ -1,21 +1,33 @@
 @import '../variable.scss';
 @import '../mixins.scss';
 
+.instruction {
+    margin-top: 16px;
+
+    a {
+        font-family: 'Roboto-Regular';
+        text-decoration: underline;
+        color: #ffffff !important;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    strong {
+        font-family: 'Roboto-Regular';
+    }
+}
+
 .questionContainer {
     margin-top: 25px;
 
     .questionItem {
-
-        @include dottedBorder(#d19da1,horizontal,bottom,5px,1px);
-
-        &:first-child {
-            .question {
-                padding-top: 0;
-            }
-        }
+        @include dottedBorder(#d19da1,horizontal,top,5px,1px);
     }
 
     .question {
+        position: relative;
         font-family: 'Montserrat-Light';
         font-size: 18px;
         line-height: 24px;
@@ -24,10 +36,19 @@
         padding: 11px 0 12px;
         cursor: pointer;
         @include transition(all 0.2s ease);
+        @include user-select();
 
         &.active {
-            font-size: 24px;
-            line-height: 36px;
+            /*font-size: 24px;
+            line-height: 36px;*/
+            i {
+                @include transform(rotate(90deg));
+            }
+        }
+
+        i {
+            font-size: 12px;
+            @include position(absolute,17px,auto,auto,0,1);
         }
     }
 
@@ -40,19 +61,30 @@
             line-height: 24px;
         }
 
-        a {
-            color: #ffffff !important;
-        }
-
-        ul {
-            padding: 0;
-            margin: 0;
-
+        ul, ol {
             li {
                 padding-left: 23px;
                 background: url('../images/white-bullet.png') no-repeat;
                 background-position: 0px 7px;
                 margin-bottom: 6px;
+                *:last-child{
+                    margin-bottom:0;
+                }
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ol {
+            padding-left: 53px;
+
+            li {
+                background: none;
+                padding-left: 15px;
             }
         }
 
@@ -61,84 +93,17 @@
         }
     }
 }
-.howContribute {
-    text-align: center;
-    padding-top: 27px;
-    padding-bottom: 27px;
 
-    h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    p {
-        a {
-            color: #ffffff;
-            text-decoration: underline;
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
-    }
-
-    .contributeContract {
-        display: inline-block;
-        background: rgba(#7f0212,0.5);
-        padding: 10px;
-        margin-bottom: 15px;
-        max-width: 680px;
-        @include border-radius(10px);
-
-        p {
-            letter-spacing: 1px;
-            word-break: break-all;
-        }
-
-        > *:last-child {
-            margin-bottom: 0;
-        }
-
-        .contributeContractTitle {
-            text-transform: uppercase;
-            font-size: 20px;
-        }
-
-        .contributeContractDetail {
-            text-transform: uppercase;
+.instructionSection {
+    margin-bottom:40px;
+    .questionContainer {
+        .question{
+            padding-left:40px;
         }
     }
 }
-
-.contributeNavigation {
-    float: right;
-    width: 70%;
-    margin-right: 15px;
-    margin-top: 10px;
-
-    ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        font-size: 0;
-        text-align: right;
-
-        li {
-            display: inline-block;
-            margin-left: 15px;
-
-            a {
-                display: block;
-                color: #ffffff;
-            }
-
-            i {
-                display: inline-block;
-                vertical-align: middle;
-                font-size: 26px;
-            }
-        }
-    }
+.strongText {
+    font-family: 'Roboto-Regular';
 }
 
 @media (min-width: $labtopSize){
@@ -147,10 +112,12 @@
             font-size: 24px;
             line-height: 30px;
             padding: 19px 0 19px;
-
-            &.active {
+            /*&.active {
                 font-size: 30px;
                 line-height: 36px;
+            }*/
+            i {
+                top: 26px;
             }
         }
 
@@ -162,12 +129,19 @@
                 line-height: 36px;
             }
 
-            ul {
+            ul, ol {
 
                 li {
                     padding-left: 32px;
                     background-position: 0px 15px;
                     margin-bottom: 0;
+                }
+            }
+
+            ol {
+                padding-left: 58px;
+                li{
+                    padding-left:20px;
                 }
             }
         }
@@ -179,35 +153,7 @@
             margin-top: 0;
         }
     }
-
-    .howContribute {
-        padding-top: 43px;
-
-        h2 {
-            font-size: 30px;
-            margin-bottom: 27px;
-        }
-
-        p {
-            margin-bottom: 22px;
-        }
-
-        .contributeContract {
-            width: 680px;
-            padding: 28px 20px 20px;
-            margin-bottom: 19px;
-
-            .contributeContractTitle {
-                font-size: 30px;
-            }
-
-            .contributeContractDetail {
-                font-size: 24px;
-            }
-        }
-
-        > *:last-child {
-            margin-bottom: 0;
-        }
+    .instructionSection {
+        margin-bottom: 50px;
     }
 }

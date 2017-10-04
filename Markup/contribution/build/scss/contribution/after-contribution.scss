@@ -102,6 +102,76 @@
     }
 }
 
+.mainOverlay {
+    min-width: 320px;
+    background: rgba(#000000,0.5);
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+    opacity: 0;
+    @include position(fixed,0,0,0,0,-999);
+    @include transition(opacity 0.2s ease);
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+
+    &.overlayOpen {
+        z-index: 999;
+        @include opacity(1,100);
+
+        .overlayDialog {
+            top: 0;
+        }
+    }
+
+    .overlayDialog {
+        position: relative;
+        top: -100%;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        max-width: 685px;
+        padding: 30px 10px;
+        @include transition(all 0.5s ease);
+    }
+
+    .overlayDialogContent {
+        position: relative;
+        background-color: #ffffff;
+        color: $pageFontColor;
+        padding: 30px 23px;
+        @include border-radius(30px);
+    }
+
+    .textContent {
+        text-align: left;
+        margin-bottom:30px;
+
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .overlayTitle{
+        margin-bottom:35px;
+    }
+
+    .closeOverlay{
+        color:#ffffff;
+        border-color:$generalRed;
+        background:$generalRed;
+        min-width:212px;
+    }
+}
+
+.alertContainer{
+    margin-top:20px;
+}
+
 @media (min-width: $tabletSize) {
 }
 
@@ -158,6 +228,11 @@
     }
     .contributeStatus{
         padding-top:52px;
+    }
+    .mainOverlay {
+        .overlayDialogContent {
+            padding: 45px 56px 38px;
+        }
     }
 }
 
