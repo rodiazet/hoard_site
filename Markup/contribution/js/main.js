@@ -129,7 +129,7 @@ $(window).on('resize', function () {
 $("#btnCheckBalance").click(function(){
     var address = $("#txtAddress").val();
     $("#div_balance").html("<p>Checking...</p>");
-    $.ajax({url: "http://localhost:5000/api/getHRDBalanceOf/?address="+address, success: function(result){
+    $.ajax({url: "https://statsapi.hoard.exchange/api/getHRDBalanceOf/?address="+address, success: function(result){
                console.log(result);
                if(result.balanceOf>0 && result.finalized==true)
                {
