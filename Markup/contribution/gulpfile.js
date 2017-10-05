@@ -19,6 +19,10 @@ gulp.task('minifyjs', function() {
         .pipe(uglify())
         .pipe(gulp.dest('build/js/minjs/'));
 
+    gulp.src('build/js/instruction.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('build/js/minjs/'));
+
     return gulp.src('build/js/after.js')
     .pipe(uglify())
     .pipe(gulp.dest('build/js/minjs/'))
