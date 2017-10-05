@@ -143,11 +143,15 @@ $(window).on('resize', function () {
 
 $("#btnCheckBalance").click(function(){
     var address = $("#txtAddress").val();
-    $.ajax({url: "https://statsapi.hoard.exchange/api/getcurPubHRD4ETHValForAddr/?address="+address, success: function(result){
+    $("#div_balance").html("<p>Checking...</p>");
+    $.ajax({url: "https://statsapi.hoard.exchange/api/getHRDBalanceOf/?address="+address, success: function(result){
                console.log(result);
-               if(result>0)
+               if(result.balanceOf>0 && result.finalized==true)
                {
-                $("#div_balance").html("<p>"+result+" HRD</p>");
+                $("#div_balance").html("<p>"+result.balanceOf+" HRD</p>");
+               }
+               else if(result.balanceOf>0 && result.finalized==false){
+                $("#div_balance").html("<p>Your HRD balance will be visible after you <a href='instruction.html#finalize'>finalized transaction.</a></p>");
                }
                else{
                 $( "#div_balance" ).html("<p>Something went wrong, please make sure you have the right address.</p>"); 
