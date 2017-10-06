@@ -130,7 +130,8 @@ body {
   font-family: 'Roboto-Light';
   color: #232323;
   background: #ffffff;
-  padding-top: 40px; }
+  padding-top: 40px;
+  -webkit-font-smoothing: subpixel-antialiased; }
 
 h1, h2, h3 {
   margin-top: 0;
