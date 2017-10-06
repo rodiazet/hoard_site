@@ -3,7 +3,7 @@
 
 .header {
     width: 100%;
-    padding:5px 0;
+    padding: 5px 0;
     background: #af1920;
     @include position(fixed,0,auto,auto,0,7);
 
@@ -11,15 +11,120 @@
         border-bottom: 1px solid #840517;
     }
 
-    .headerSubmenu {
+    .deskTopMenu {
         text-align: right;
-        padding: 6px 0 7px;
+        padding: 7px 0 7px;
 
-        a {
-            font-size: 13px;
-            letter-spacing: 1px;
-            color: #ffffff;
-            margin-left: 12px;
+        > ul {
+            font-size: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            /* first level */
+            > li {
+                display: inline-block;
+                padding: 0 6px;
+                border-right: 1px solid #ffffff;
+
+                &:last-child {
+                    border: none;
+                }
+
+                > a, > span {
+                    font-size: 13px;
+                    letter-spacing: 1px;
+                    color: #ffffff;
+                    cursor: pointer;
+                }
+            }
+
+            .dropdown {
+                position: relative;
+
+                &:hover {
+                    > .subMenuWrapper {
+                        display: block;
+                    }
+                }
+
+                > .subMenuWrapper {
+                    display: none;
+                    padding-top: 28px;
+                    width: 265px;
+                    @include position(absolute,100%,auto,auto,50%,999);
+                    @include transform(translateX(-50%));
+
+                    > ul {
+                        position: relative;
+                        text-align: left;
+                        border: #7F7F7F solid 1px;
+                        background: $generalRed;
+
+                        @include border-radius(5px);
+
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            border-style: solid;
+                            border-width: 0 13px 12px;
+                            border-color: $generalRed transparent;
+                            display: block;
+                            width: 0;
+                            z-index: 1;
+                            top: -12px;
+                            left: 112px;
+                        }
+
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            border-style: solid;
+                            border-width: 0 14px 13px;
+                            border-color: #7F7F7F transparent;
+                            display: block;
+                            width: 0;
+                            z-index: 0;
+                            top: -14px;
+                            left: 111px;
+                        }
+
+                        > li {
+                            display: block;
+                            padding: 0;
+                            overflow:hidden;
+
+                            &:first-child {
+                                @include border-radius(5px 5px 0 0);
+                            }
+
+                            &:last-child {
+                                @include border-radius(0 0 5px 5px);
+                            }
+
+                            > a {
+                                display: block;
+                                font-size: 16px;
+                                line-height: 24px;
+                                letter-spacing: 1px;
+                                color: #ffffff;
+                                padding: 5px 15px;
+
+                                &:hover {
+                                    text-decoration: none;
+                                    background: #ffffff;
+                                    color: $generalRed;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -76,7 +181,7 @@
     }
 }
 
-.mainNavigation {
+.mobileNavigation {
     height: 100vh;
     width: 268px;
     overflow-y: auto;
@@ -84,7 +189,7 @@
     color: #ffffff;
     -webkit-overflow-scrolling: touch;
     @include transition(all $transitionTime ease);
-    @include position(fixed,40px,-268px,auto,auto,8);
+    @include position(fixed,40px,-268px,auto,auto,999);
 
     &.open {
         right: 0;
@@ -112,13 +217,23 @@
                 margin-bottom: 0;
             }
 
+            &:hover {
+                > a {
+                    color: $generalRedLink;
+
+                    &:before {
+                        @include opacity(1,100);
+                    }
+                }
+            }
+
             a {
                 position: relative;
                 display: block;
                 font-size: 18px;
                 color: #ffffff;
                 padding: 0 15px 0 53px;
-                text-transform:uppercase;
+                text-transform: uppercase;
 
                 &:before {
                     font-family: 'FontAwesome';
@@ -127,15 +242,33 @@
                     @include opacity(0,0);
                     @include position(absolute,5px,auto,auto,26px,1);
                 }
+            }
+        }
 
-                &:hover {
-                    color: $generalRedLink;
+        .subMenuWrapper {
+            display: none;
 
-                    &:before {
-                        @include opacity(1,100);
+            ul {
+                list-style: none;
+                margin: 23px 0 0 0;
+                padding-left: 20px;
+
+                li {
+                    position: relative;
+
+                    a {
+                        font-size: 14px;
+                        letter-spacing:1px;
                     }
                 }
             }
+        }
+
+        .toggleSubMenu {
+            width: 100%;
+            height: 25px;
+            cursor:pointer;
+            @include position(absolute,0,auto,auto,0,2);
         }
     }
 
@@ -143,8 +276,8 @@
         font-size: 18px;
         margin-top: 31px;
         margin-bottom: 50px;
-        padding-left:20px;
-        padding-right:20px;
+        padding-left: 20px;
+        padding-right: 20px;
 
         .languageTitle {
             padding: 0 15px 0 33px;
@@ -226,13 +359,20 @@
 /* not touch device */
 .no-touchevents {
     .header {
-        .headerSubmenu {
-            a {
-                font-size:18px;
-                line-height:24px;
-                text-transform:uppercase;
-                &:hover {
-                    text-decoration: underline;
+        .deskTopMenu {
+            ul {
+                /* first level */
+                > li {
+
+                    > a, > span {
+                        font-size: 18px;
+                        line-height: 24px;
+                        text-transform: uppercase;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
                 }
             }
         }
@@ -277,29 +417,42 @@
             }
         }
 
-        .headerSubmenu {
-            margin-right: 85px;
-
-            a {
-                margin-left: 20px;
+        .deskTopMenu {
+            margin-right: 20px;
+            ul{
+                > li{
+                    padding:0 14px;
+                }
             }
         }
     }
     .toggleMenu {
+        display:none;
         top: 13px;
         right: 32px;
     }
-    .mainNavigation {
+    .mobileNavigation {
+        display:none !important;
         top: 0;
-        width:312px;
-        right:-312px;
-        .mainMenu{
-            margin-top:81px;
-            padding-top:0;
+        width: 312px;
+        right: -312px;
+
+        .mainMenu {
+            margin-top: 81px;
+            padding-top: 0;
         }
     }
 }
 
 @media (min-width: $DesktopSize) {
-    
+    .header {
+        
+        .deskTopMenu {
+            ul {
+                > li {
+                    padding: 0 20px;
+                }
+            }
+        }
+    }
 }

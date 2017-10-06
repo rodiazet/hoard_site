@@ -202,10 +202,11 @@ function Header() {
     this.body = $('body');
     this.header = $('.header');
     this.toggleMenuButton = $('.toggleMenu');
-    this.mainNavigation = $('.mainNavigation');
+    this.mainNavigation = $('.mobileNavigation');
     this.currentLanguageButton = $('.currentLanguage');
     this.dropdownLanguage = $('.dropdownLanguage');
     this.scrollClick = $('.scrollClick');
+    this.toggleSubMenuButton = $('.toggleSubMenu');
     this.is_device = navigator.userAgent.match(/(Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini)/) != null;
 
     this.init = function () {
@@ -215,6 +216,7 @@ function Header() {
         this.toggleDropdownLanguage();
         this.headerWhenScroll();
         this.scrollToSection();
+        this.toggleSubMenu();
     }
 
     this.onScreenChange = function () {
@@ -317,6 +319,21 @@ function Header() {
             $('html, body').animate({
                 scrollTop: $('#' + sectionID).offset().top - headerHeight
             }, context.animateTime);
+        });
+    }
+
+    this.toggleSubMenu = function () {
+        this.toggleSubMenuButton.on('click', function (e) {
+            e.preventDefault();
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+                $(this).parent().removeClass('open');
+                $(this).siblings('.subMenuWrapper').slideUp(200);
+            } else {
+                $(this).addClass('active');
+                $(this).parent().addClass('open');
+                $(this).siblings('.subMenuWrapper').slideDown(200);
+            }
         });
     }
 
