@@ -36,6 +36,7 @@ gulp.task('concatjs', function() {
     'js/lity.min.js',
     'js/main.js',
     'js/header.js',
+    'module-topsection.js',
     'js/module-teaserbox.js',
     'js/module-countdown.js',
     'js/module-investor.js',
