@@ -35,13 +35,47 @@
                         </div>
                     </div>
                     <div class="col-xs-6 col-md-10 hidden-xs hidden-sm">
-                        <div class="headerSubmenu">
-                            <a href="#" class="scrollClick" data-scrollto="valuableSection">Product</a>
-                            <a href="http://contribution.hoard.exchange">Token Launch</a>
-                            <a href="#" class="scrollClick" data-scrollto="teamSection">Team</a>
-                            <a href="blog.hoard.exchange">Blog</a>
-                            <a href="#">Crowdfunding paper</a>
-                        </div>
+                        <nav class="deskTopMenu">
+                            <ul>
+                                <li class="dropdown">
+                                    <a>Product</a>
+                                    <div class="subMenuWrapper">
+                                        <ul>
+                                            <li><a href="#" class="scrollClick" data-scrollto="valuableSection">Use cases</a></li>
+                                            <li><a href="#" class="scrollClick" data-scrollto="technologySection">Technology</a></li>
+                                            <li><a href="#" class="scrollClick" data-scrollto="crowdfundSection">Crowd funding</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="dropdown">
+                                    <a>Team</a>
+                                    <div class="subMenuWrapper">
+                                        <ul>
+                                            <li><a href="#" class="scrollClick" data-scrollto="teamSection">Team</a></li>
+                                            <li><a href="#" class="scrollClick" data-scrollto="advisorSection">Advisors</a></li>
+                                            <li><a href="#" class="scrollClick" data-scrollto="investorSection">Investors & partners</a></li>
+                                            <li><a href="#" class="scrollClick" data-scrollto="contactSection">Contact us</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="https://blog.hoard.exchange">Blog</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a>Token Launch</a>
+                                    <div class="subMenuWrapper">
+                                        <ul>
+                                            <li><a href="https://contribution.hoard.exchange">Participate</a></li>
+                                            <li><a href="https://contribution.hoard.exchange/instructions.html">Instructions</a></li>
+                                            <li><a href="https://contribution.hoard.exchange/instructions.html#FAQ">FAQ</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#">Crowdfunding paper</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -53,14 +87,48 @@
             <div class="menuBar"></div>
             <div class="menuBar"></div>
         </div>
-        <nav class="mainNavigation">
+        <nav class="mobileNavigation">
             <ul class="mainMenu">
-                <li><a href="#" class="scrollClick" data-scrollto="valuableSection">Product</a></li>
-                <li><a href="#" class="scrollClick" data-scrollto="technologySection">Technology</a></li>
-                <li><a href="#" class="scrollClick" data-scrollto="crowdfundSection">Crowdfunding</a></li>
-                <li><a href="#" class="scrollClick" data-scrollto="teamSection">Team</a></li>
-                <li><a href="#" class="scrollClick" data-scrollto="contactSection">Contact us</a></li>
-                <li><a href="http://contribution.hoard.exchange">Contribution</a></li>
+                <li class="dropdown">
+                    <a>Product</a>
+                    <span class="toggleSubMenu"></span>
+                    <div class="subMenuWrapper">
+                        <ul>
+                            <li><a href="#" class="scrollClick" data-scrollto="valuableSection">Use cases</a></li>
+                            <li><a href="#" class="scrollClick" data-scrollto="technologySection">Technology</a></li>
+                            <li><a href="#" class="scrollClick" data-scrollto="crowdfundSection">Crowd funding</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a>Team</a>
+                    <span class="toggleSubMenu"></span>
+                    <div class="subMenuWrapper">
+                        <ul>
+                            <li><a href="#" class="scrollClick" data-scrollto="teamSection">Team</a></li>
+                            <li><a href="#" class="scrollClick" data-scrollto="advisorSection">Advisors</a></li>
+                            <li><a href="#" class="scrollClick" data-scrollto="investorSection">Investors & partners</a></li>
+                            <li><a href="#" class="scrollClick" data-scrollto="contactSection">Contact us</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://blog.hoard.exchange">Blog</a>
+                </li>
+                <li class="dropdown">
+                    <a>Token Launch</a>
+                    <span class="toggleSubMenu"></span>
+                    <div class="subMenuWrapper">
+                        <ul>
+                            <li><a href="https://contribution.hoard.exchange">Participate</a></li>
+                            <li><a href="https://contribution.hoard.exchange/instructions.html">Instructions</a></li>
+                            <li><a href="https://contribution.hoard.exchange/instructions.html#FAQ">FAQ</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Crowdfunding paper</a>
+                </li>
             </ul>
             <!--
             <div class="menuLanguage">
@@ -93,6 +161,8 @@
                 <img src="images/video-bg1.jpg" alt="" />
             </div>
         </section>
+
+        <button class="moreSection scrollClick" data-scrollto="twoTeaserSection"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
 
         <!-- Teaserbox 2 columns section -->
         <section class="teaserBox teaserTwoColumn" id="twoTeaserSection">
@@ -804,6 +874,7 @@
     <script type="text/javascript" src="js/lity.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/header.js"></script>
+    <script type="text/javascript" src="js/module-topsection.js"></script>
     <script type="text/javascript" src="js/module-teaserbox.js"></script>
     <script type="text/javascript" src="js/module-countdown.js"></script>
     <script type="text/javascript" src="js/module-investor.js"></script>
