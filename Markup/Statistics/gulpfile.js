@@ -74,7 +74,7 @@ gulp.task('cleanup',function(){
 
 gulp.task('minifyhtml', function() {
     return gulp.src('build/index_tags_replaced/index.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({collapseWhitespace: true,removeComments:true}))
     .pipe(gulp.dest('build/'));
 });
 

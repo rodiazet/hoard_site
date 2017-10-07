@@ -144,19 +144,19 @@ gulp.task('cleanup',function(){
 
 gulp.task('minifyhtml', function() {
     gulp.src('build/tags_replaced/during.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({collapseWhitespace: true,removeComments:true}))
     .pipe(gulp.dest('build/hidden_resources'));
 
     gulp.src('build/tags_replaced/after.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({collapseWhitespace: true,removeComments:true}))
     .pipe(gulp.dest('build/hidden_resources'));
 
     gulp.src('build/tags_replaced/instruction.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({collapseWhitespace: true,removeComments:true}))
     .pipe(gulp.dest('build/'));
 
     return gulp.src('build/tags_replaced/before.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({collapseWhitespace: true,removeComments:true}))
     .pipe(gulp.dest('build/hidden_resources'));
 });
 
