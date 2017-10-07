@@ -36,7 +36,7 @@ gulp.task('concatjs', function() {
     'js/lity.min.js',
     'js/main.js',
     'js/header.js',
-    'module-topsection.js',
+    'js/module-topsection.js',
     'js/module-teaserbox.js',
     'js/module-countdown.js',
     'js/module-investor.js',
@@ -87,7 +87,7 @@ gulp.task('cleanup',function(){
 
 gulp.task('minifyhtml', function() {
     return gulp.src('build/index_tags_replaced/index.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({collapseWhitespace: true,removeComments:true}))
     .pipe(gulp.dest('build/'));
 });
 

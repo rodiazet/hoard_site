@@ -26,20 +26,25 @@ gulp.task('build_all', function(callback) {
                 callback);
 });
 
-
+gulp.task( 'prep_test', function (callback) {
+    runSequence('prepare_before',
+                'prepare_during', 
+                'prepare_after',
+                callback);
+});
 
 gulp.task( 'prepare_during', function () {
-    gulp.src( 'Markup/contribution/gulpfile.js' )
+    return gulp.src( 'Markup/contribution/gulpfile.js' )
         .pipe( chug({tasks:['prepare_during']}) );
 });
 
 gulp.task( 'prepare_after', function () {
-    gulp.src( 'Markup/contribution/gulpfile.js' )
+    return gulp.src( 'Markup/contribution/gulpfile.js' )
         .pipe( chug({tasks:['prepare_after']}) );
 });
 
 gulp.task( 'prepare_before', function () {
-    gulp.src( 'Markup/contribution/gulpfile.js' )
+    return gulp.src( 'Markup/contribution/gulpfile.js' )
         .pipe( chug({tasks:['prepare_before']}) );
 });
 
