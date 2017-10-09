@@ -144,12 +144,6 @@
     @include position(fixed,5px,10px,auto,auto,9);
     @include user-select(none);
 
-    &:hover {
-        .menuBar {
-            background: #ef9588;
-        }
-    }
-
     .menuBar {
         width: 29px;
         height: 2px;
@@ -196,7 +190,7 @@
     }
 
     &.topZero {
-        top: 0;
+        /*top: 0;*/
     }
 
     .menuIcons {
@@ -217,12 +211,22 @@
                 margin-bottom: 0;
             }
 
-            &:hover {
+            &.dropdown {
                 > a {
-                    color: $generalRedLink;
+                    &:before {
+                        font-family: 'FontAwesome';
+                        content: "\f04b";
+                        font-size: 12px;
+                        @include position(absolute,5px,auto,auto,26px,1);
+                    }
+                }
+            }
+
+            &.open {
+                > a {
 
                     &:before {
-                        @include opacity(1,100);
+                        @include transform(rotate(90deg));
                     }
                 }
             }
@@ -234,14 +238,6 @@
                 color: #ffffff;
                 padding: 0 15px 0 53px;
                 text-transform: uppercase;
-
-                &:before {
-                    font-family: 'FontAwesome';
-                    content: "\f04b";
-                    font-size: 12px;
-                    @include opacity(0,0);
-                    @include position(absolute,5px,auto,auto,26px,1);
-                }
             }
         }
 
@@ -258,7 +254,7 @@
 
                     a {
                         font-size: 14px;
-                        letter-spacing:1px;
+                        letter-spacing: 1px;
                     }
                 }
             }
@@ -267,7 +263,7 @@
         .toggleSubMenu {
             width: 100%;
             height: 25px;
-            cursor:pointer;
+            cursor: pointer;
             @include position(absolute,0,auto,auto,0,2);
         }
     }
@@ -378,6 +374,14 @@
         }
     }
 
+    .toggleMenu {
+        &:hover {
+            .menuBar {
+                background: #ef9588;
+            }
+        }
+    }
+
     .menuIcons {
         a {
             position: relative;
@@ -386,6 +390,26 @@
 
             &:hover {
                 color: #f09789;
+            }
+        }
+    }
+
+    .mobileNavigation {
+        .mainMenu {
+            list-style: none;
+            padding: 40px 0 29px 0;
+            margin: 0;
+            border-bottom: 1px solid #5c5d62;
+
+            li {
+                &:hover {
+                    > a {
+                        color: $generalRedLink;
+                        /*&:before {
+                            @include opacity(1,100);
+                        }*/
+                    }
+                }
             }
         }
     }
