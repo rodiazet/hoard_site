@@ -29,7 +29,8 @@ gulp.task('concatjs', function() {
     'js/bootstrap.min.js',
     'js/main.js',
     'js/base-contribution.js',
-    'js/showstats.js'])
+    'js/showstats.js',
+    'js/whcookies.js'])
     .pipe(concat('all.js'))
     .pipe(gulp.dest('build/js/'));
 });
@@ -74,7 +75,7 @@ gulp.task('cleanup',function(){
 
 gulp.task('minifyhtml', function() {
     return gulp.src('build/index_tags_replaced/index.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({collapseWhitespace: true,removeComments:true}))
     .pipe(gulp.dest('build/'));
 });
 
