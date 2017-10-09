@@ -776,17 +776,17 @@ function WHReadCookie(name) {
 window.onload = WHCheckCookies;
 
 function WHCheckCookies() {
-    if(WHReadCookie('golem_cookies_accepted') != 'T') {
+    if(WHReadCookie('hoard_accepted') != 'T') {
         var message_container = document.createElement('div');
         message_container.id = 'cookies-message-container';
         var html_code = '<div id="cookies-message" style="padding: 10px 0px; font-size: 12px; line-height: 14px; border-bottom: 1px solid rgb(211, 208, 208); text-align: center; position: fixed; top: 0px; background-color: #efefef; width: 100%; z-index: 999;">Our website uses cookies and other similar technologies to improve our site and your online experience. By continuing to use our website you consent to cookies being used.<a href="javascript:WHCloseCookiesWindow();" id="accept-cookies-checkbox" name="accept-cookies" style="background-color: #00AFBF; padding: 5px 10px; color: #FFF; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; display: inline-block; margin-left: 10px; text-decoration: none; cursor: pointer;">Accept</a></div>';
         message_container.innerHTML = html_code;
         document.body.appendChild(message_container);
-        var c = WHReadCookie('golem_cookies_accepted')
+        var c = WHReadCookie('hoard_accepted')
     }
 }
 
 function WHCloseCookiesWindow() {
-    WHCreateCookie('golem_cookies_accepted', 'T', 365)
+    WHCreateCookie('hoard_accepted', 'T', 365)
     document.getElementById('cookies-message-container').removeChild(document.getElementById('cookies-message'));
 }
