@@ -41,7 +41,8 @@ gulp.task('concatjs_instruction', function() {
     'js/modernizr-3.3.1.min.js',
     'js/bootstrap.min.js',
     'js/main.js',
-    'js/during-contribution.js'])
+    'js/during-contribution.js',
+    'js/whcookies.js'])
     .pipe(concat('instruction.js'))
     .pipe(gulp.dest('build/js/'));
 });
@@ -55,7 +56,8 @@ gulp.task('concatjs_before', function() {
     'js/jquery.throttle.js',
     'js/main.js',
     'js/module-countdown.js',
-    'js/base-contribution.js'])
+    'js/base-contribution.js',
+    'js/whcookies.js'])
     .pipe(concat('before.js'))
     .pipe(gulp.dest('build/js/'));
 });
@@ -70,7 +72,8 @@ gulp.task('concatjs_during', function() {
     'js/module-countdown.js',
     'js/base-contribution.js',
     'js/during-contribution.js',
-    'js/during-balance.js'])
+    'js/during-balance.js',
+    'js/whcookies.js'])
     .pipe(concat('during.js'))
     .pipe(gulp.dest('build/js/'));
 });
@@ -80,7 +83,8 @@ gulp.task('concatjs_after', function() {
     'js/bootstrap.min.js',
     'js/jquery.classycountdown.min.js',
     'js/main.js',
-    'js/overlay.js'])
+    'js/overlay.js',
+    'js/whcookies.js'])
     .pipe(concat('after.js'))
     .pipe(gulp.dest('build/js/'));
 });

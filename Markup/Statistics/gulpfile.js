@@ -29,7 +29,8 @@ gulp.task('concatjs', function() {
     'js/bootstrap.min.js',
     'js/main.js',
     'js/base-contribution.js',
-    'js/showstats.js'])
+    'js/showstats.js',
+    'js/whcookies.js'])
     .pipe(concat('all.js'))
     .pipe(gulp.dest('build/js/'));
 });
