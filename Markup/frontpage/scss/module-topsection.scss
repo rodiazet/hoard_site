@@ -97,6 +97,7 @@
 }
 
 .moreSection {
+    display:none;
     width: 60px;
     height: 60px;
     padding: 0;
@@ -218,6 +219,9 @@
         height: 50px !important;
         font-size: 50px !important;
         line-height: 50px !important;
+    }
+    .moreSection{
+        display:block;
     }
 }
 

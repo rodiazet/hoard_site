@@ -10,6 +10,7 @@
     this.dropdownLanguage = $('.dropdownLanguage');
     this.scrollClick = $('.scrollClick');
     this.toggleSubMenuButton = $('.toggleSubMenu');
+    this.closeMainMenuButton = $('.closeMenu');
     this.is_device = navigator.userAgent.match(/(Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini)/) != null;
 
     this.init = function () {
@@ -20,6 +21,7 @@
         this.headerWhenScroll();
         this.scrollToSection();
         this.toggleSubMenu();
+        this.closeMainMenu();
     }
 
     this.onScreenChange = function () {
@@ -72,6 +74,13 @@
                 $(this).addClass('active');
                 context.mainNavigation.addClass('open');
             }
+        });
+    }
+
+    this.closeMainMenu = function () {
+        this.closeMainMenuButton.on('click', function () {
+            context.toggleMenuButton.removeClass('active');
+            context.mainNavigation.removeClass('open');
         });
     }
 
