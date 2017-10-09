@@ -42,7 +42,8 @@ gulp.task('concatjs', function() {
     'js/module-investor.js',
     'js/module-team.js',
     'js/module-slideshow.js',
-    'js/mailchimp.js'])
+    'js/mailchimp.js',
+    'js/whcookies.js'])
     .pipe(concat('all.js'))
     .pipe(gulp.dest('build/js/'));
 });
