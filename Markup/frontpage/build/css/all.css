@@ -1717,7 +1717,7 @@ a.generalButton,
   padding-left: 0; }
   .technologyList li {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     padding-left: 29px; }
     .technologyList li:before {
       content: '';
