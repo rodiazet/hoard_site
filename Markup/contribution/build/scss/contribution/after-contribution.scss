@@ -1,0 +1,239 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+
+.summarySection {
+    text-align: center;
+    margin-bottom:23px;
+
+    h2 {
+        margin-bottom: 26px;
+    }
+
+    .summaryThankYou {
+        font-size: 16px;
+        line-height: 24px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom:28px;
+    }
+
+    .summaryTable {
+        table {
+            font-family: 'Roboto-Thin';
+            font-size: 24px;
+            width: 100%;
+            td{
+                vertical-align:top;
+                padding-bottom:15px;
+            }
+
+            tr:last-child{
+                td{
+                    padding-bottom:0;
+                }
+            }
+
+            .valueColumn {
+                width: 55%;
+                text-align: right;
+                padding-right: 15px;
+
+                span {
+                    display: inline-block;
+                    text-transform: uppercase;
+                    font-size: 18px;
+                    margin-left:10px;
+                }
+            }
+
+            .activityColumn {
+                width: 45%;
+                text-align: left;
+                padding-left: 15px;
+            }
+        }
+    }
+}
+
+.after {
+    .iconLinks {
+        padding-bottom:0;
+        @include dottedBorder(#d19da1,horizontal,top,5px,1px);
+    }
+}
+
+.contributeStatus {
+    text-align: center;
+    padding-top:30px;
+    @include dottedBorder(#d19da1,horizontal,top,5px,1px);
+
+    h3 {
+        font-size: 20px;
+        line-height: 36px;
+        margin-bottom:33px;
+    }
+
+    .contributeStatusInput {
+        width: 100%;
+        max-width: 360px;
+        font-size: 18px;
+        border: none;
+        background: #ffffff;
+        color: #000000;
+        padding: 0 15px;
+        height: 38px;
+        margin-bottom:38px;
+        outline:none;
+
+        &::-moz-placeholder {
+            font-family: 'Roboto-Light';
+            color: #bcbcbc;
+        }
+
+        &::-webkit-input-placeholder {
+            font-family: 'Roboto-Light';
+            color: #bcbcbc;
+        }
+
+        &:-ms-input-placeholder {
+            font-family: 'Roboto-Light';
+            color: #bcbcbc;
+        }
+    }
+}
+
+.mainOverlay {
+    min-width: 320px;
+    background: rgba(#000000,0.5);
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+    opacity: 0;
+    @include position(fixed,0,0,0,0,-999);
+    @include transition(opacity 0.2s ease);
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+
+    &.overlayOpen {
+        z-index: 999;
+        @include opacity(1,100);
+
+        .overlayDialog {
+            top: 0;
+        }
+    }
+
+    .overlayDialog {
+        position: relative;
+        top: -100%;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        max-width: 685px;
+        padding: 30px 10px;
+        @include transition(all 0.5s ease);
+    }
+
+    .overlayDialogContent {
+        position: relative;
+        background-color: #ffffff;
+        color: $pageFontColor;
+        padding: 30px 23px;
+        @include border-radius(30px);
+    }
+
+    .textContent {
+        margin-bottom:30px;
+
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .overlayTitle{
+        margin-bottom:35px;
+    }
+
+    .closeOverlay{
+        color:#ffffff;
+        border-color:$generalRed;
+        background:$generalRed;
+        min-width:212px;
+    }
+}
+
+.alertContainer{
+    margin-top:20px;
+}
+
+@media (min-width: $tabletSize) {
+}
+
+@media (min-width: $labtopSize) {
+    .summarySection {
+        margin-top: 16px;
+        margin-bottom:45px;
+
+        h2 {
+            line-height: 53px;
+            margin-bottom: 40px;
+        }
+
+        .summaryThankYou {
+            font-size: 30px;
+            margin-bottom:40px;
+            letter-spacing:1px;
+        }
+
+        .summaryTable {
+            table {
+                font-size:48px;
+
+                td {
+                    padding-bottom:4px;
+                }
+
+                .valueColumn {
+                    width: 50%;
+                    padding-right:47px;
+
+                    span {
+                        font-size:24px;
+                        margin-left:15px;
+                    }
+                }
+
+                .activityColumn {
+                    width: 50%;
+                    padding-left:47px;
+                }
+            }
+        }
+    }
+    .after {
+        .iconLinks {
+            margin-top:25px;
+            padding-top:49px;
+            text-align:center;
+            li{
+                margin:0 7px;
+            }
+        }
+    }
+    .contributeStatus{
+        padding-top:52px;
+    }
+    .mainOverlay {
+        .overlayDialogContent {
+            padding: 45px 56px 38px;
+        }
+    }
+}
+
+@media (min-width: $DesktopSize) {
+}

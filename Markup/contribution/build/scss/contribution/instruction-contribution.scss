@@ -1,0 +1,159 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+
+.instruction {
+    margin-top: 16px;
+
+    a {
+        font-family: 'Roboto-Regular';
+        text-decoration: underline;
+        color: #ffffff !important;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    strong {
+        font-family: 'Roboto-Regular';
+    }
+}
+
+.questionContainer {
+    margin-top: 25px;
+
+    .questionItem {
+        @include dottedBorder(#d19da1,horizontal,top,5px,1px);
+    }
+
+    .question {
+        position: relative;
+        font-family: 'Montserrat-Light';
+        font-size: 18px;
+        line-height: 24px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 11px 0 12px;
+        cursor: pointer;
+        @include transition(all 0.2s ease);
+        @include user-select();
+
+        &.active {
+            /*font-size: 24px;
+            line-height: 36px;*/
+            i {
+                @include transform(rotate(90deg));
+            }
+        }
+
+        i {
+            font-size: 12px;
+            @include position(absolute,17px,auto,auto,0,1);
+        }
+    }
+
+    .anwser {
+        display: none;
+        padding-bottom: 19px;
+
+        p, li {
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        ul, ol {
+            li {
+                padding-left: 23px;
+                background: url('../images/white-bullet.png') no-repeat;
+                background-position: 0px 7px;
+                margin-bottom: 6px;
+                *:last-child{
+                    margin-bottom:0;
+                }
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ol {
+            padding-left: 53px;
+
+            li {
+                background: none;
+                padding-left: 15px;
+            }
+        }
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.instructionSection {
+    margin-bottom:40px;
+    .questionContainer {
+        .question{
+            padding-left:40px;
+        }
+    }
+}
+.strongText {
+    font-family: 'Roboto-Regular';
+}
+
+@media (min-width: $labtopSize){
+    .questionContainer {
+        .question {
+            font-size: 24px;
+            line-height: 30px;
+            padding: 19px 0 19px;
+            /*&.active {
+                font-size: 30px;
+                line-height: 36px;
+            }*/
+            i {
+                top: 26px;
+            }
+        }
+
+        .anwser {
+            padding-bottom: 29px;
+
+            p, li {
+                font-size: 18px;
+                line-height: 36px;
+            }
+
+            ul, ol {
+
+                li {
+                    padding-left: 32px;
+                    background-position: 0px 15px;
+                    margin-bottom: 0;
+                }
+            }
+
+            ol {
+                padding-left: 58px;
+                li{
+                    padding-left:20px;
+                }
+            }
+        }
+    }
+
+    .duringFAQ {
+        .iconLinks {
+            background-image: none;
+            margin-top: 0;
+        }
+    }
+    .instructionSection {
+        margin-bottom: 50px;
+    }
+}
