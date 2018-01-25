@@ -52,7 +52,7 @@ gulp.task( 'prepare_before', function () {
 gulp.task('deploy', function() {
     return gulp.src('Markup/frontpage/build/**/*',{ read: false })
       .pipe(deploy({
-        repository: 'ssh://git@bitbucket.org/ddeploy12/frontpage.git',
+        repository: 'https://github.com/rodiazet/rodiazet.github.io.git',
         verbose: true,
         debug: true
       }));
